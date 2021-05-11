@@ -8,4 +8,4 @@ script:
   - bundle install --path vendor/bundle
   - bundle exec rspec
   - gem build ElasticEmail.gemspec
-  - gem install ./ElasticEmail-4.0.0.gem
+  - gem install ./ElasticEmail-4.0.1.gem
