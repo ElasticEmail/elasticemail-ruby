@@ -247,7 +247,7 @@ ElasticEmail.configure do |config|
 end
 
 api_instance = ElasticEmail::TemplatesApi.new
-scope_type = [ElasticEmail::TemplateScopeType::PERSONAL] # Array<TemplateScopeType> | Return templates with specified scope only
+scope_type = [ElasticEmail::TemplateScope::PERSONAL] # Array<TemplateScope> | Return templates with specified scope only
 opts = {
   template_types: [ElasticEmail::TemplateType::RAW_HTML], # Array<TemplateType> | Return templates with specified type only
   limit: 100, # Integer | Maximum number of returned items.
@@ -285,7 +285,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **scope_type** | [**Array&lt;TemplateScopeType&gt;**](TemplateScopeType.md) | Return templates with specified scope only |  |
+| **scope_type** | [**Array&lt;TemplateScope&gt;**](TemplateScope.md) | Return templates with specified scope only |  |
 | **template_types** | [**Array&lt;TemplateType&gt;**](TemplateType.md) | Return templates with specified type only | [optional] |
 | **limit** | **Integer** | Maximum number of returned items. | [optional] |
 | **offset** | **Integer** | How many items should be returned ahead. | [optional] |

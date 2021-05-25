@@ -1,7 +1,7 @@
 =begin
 #Elastic Email REST API
 
-#This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    To start using this API, you will need your Access Token (available <a href=\"https://elasticemail.com/account#/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    This is the documentation for REST API. If you’d like to read our legacy documentation regarding Web API v2 click <a href=\"https://api.elasticemail.com/public/help\">here</a>.
+#This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://elasticemail.com/account#/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    This is the documentation for REST API. If you’d like to read our legacy documentation regarding Web API v2 click <a target=\"_blank\" href=\"https://api.elasticemail.com/public/help\">here</a>.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
 
 The version of the OpenAPI document: 4.0.0
 Contact: support@elasticemail.com
@@ -31,6 +31,9 @@ module ElasticEmail
     # Postback header.
     attr_accessor :postback
 
+    # E-mail with an optional name to be used as the envelope from address (e.g.: John Doe <email@domain.com>)
+    attr_accessor :envelope_from
+
     # Your e-mail with an optional name (e.g.: John Doe <email@domain.com>)
     attr_accessor :from
 
@@ -57,6 +60,7 @@ module ElasticEmail
         :'attachments' => :'Attachments',
         :'headers' => :'Headers',
         :'postback' => :'Postback',
+        :'envelope_from' => :'EnvelopeFrom',
         :'from' => :'From',
         :'reply_to' => :'ReplyTo',
         :'subject' => :'Subject',
@@ -79,6 +83,7 @@ module ElasticEmail
         :'attachments' => :'Array<MessageAttachment>',
         :'headers' => :'Hash<String, String>',
         :'postback' => :'String',
+        :'envelope_from' => :'String',
         :'from' => :'String',
         :'reply_to' => :'String',
         :'subject' => :'String',
@@ -137,6 +142,10 @@ module ElasticEmail
         self.postback = attributes[:'postback']
       end
 
+      if attributes.key?(:'envelope_from')
+        self.envelope_from = attributes[:'envelope_from']
+      end
+
       if attributes.key?(:'from')
         self.from = attributes[:'from']
       end
@@ -187,6 +196,7 @@ module ElasticEmail
           attachments == o.attachments &&
           headers == o.headers &&
           postback == o.postback &&
+          envelope_from == o.envelope_from &&
           from == o.from &&
           reply_to == o.reply_to &&
           subject == o.subject &&
@@ -204,7 +214,7 @@ module ElasticEmail
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [body, merge, attachments, headers, postback, from, reply_to, subject, template_name, attach_files, utm].hash
+      [body, merge, attachments, headers, postback, envelope_from, from, reply_to, subject, template_name, attach_files, utm].hash
     end
 
     # Builds the object from hash

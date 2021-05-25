@@ -7,7 +7,7 @@
 | **name** | **String** | Template name | [optional] |
 | **subject** | **String** | Default subject of email. | [optional] |
 | **body** | [**Array&lt;BodyPart&gt;**](BodyPart.md) | Email content of this template | [optional] |
-| **template_scope** | [**TemplateScopeType**](TemplateScopeType.md) | Visibility of a template | [optional] |
+| **template_scope** | [**TemplateScope**](TemplateScope.md) | Visibility of a template | [optional] |
 
 ## Example
 

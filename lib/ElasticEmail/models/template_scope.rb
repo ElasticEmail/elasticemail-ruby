@@ -14,10 +14,9 @@ require 'date'
 require 'time'
 
 module ElasticEmail
-  class TemplateType
-    RAW_HTML = "RawHTML".freeze
-    DRAG_DROP_EDITOR = "DragDropEditor".freeze
-    LANDING_PAGE_EDITOR = "LandingPageEditor".freeze
+  class TemplateScope
+    PERSONAL = "Personal".freeze
+    GLOBAL = "Global".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
@@ -30,8 +29,8 @@ module ElasticEmail
     # @param [String] The enum value in the form of the string
     # @return [String] The enum value
     def build_from_hash(value)
-      constantValues = TemplateType.constants.select { |c| TemplateType::const_get(c) == value }
-      raise "Invalid ENUM value #{value} for class #TemplateType" if constantValues.empty?
+      constantValues = TemplateScope.constants.select { |c| TemplateScope::const_get(c) == value }
+      raise "Invalid ENUM value #{value} for class #TemplateScope" if constantValues.empty?
       value
     end
   end
