@@ -10,8 +10,9 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 | [**verifications_files_by_id_delete**](VerificationsApi.md#verifications_files_by_id_delete) | **DELETE** /verifications/files/{id} | Delete File Verification Result |
 | [**verifications_files_by_id_result_download_get**](VerificationsApi.md#verifications_files_by_id_result_download_get) | **GET** /verifications/files/{id}/result/download | Download File Verification Result |
 | [**verifications_files_by_id_result_get**](VerificationsApi.md#verifications_files_by_id_result_get) | **GET** /verifications/files/{id}/result | Get Detailed File Verification Result |
-| [**verifications_files_post**](VerificationsApi.md#verifications_files_post) | **POST** /verifications/files | Verify From File |
-| [**verifications_files_result_get**](VerificationsApi.md#verifications_files_result_get) | **GET** /verifications/files/result | Get Simple Files Verification Results |
+| [**verifications_files_by_id_verification_post**](VerificationsApi.md#verifications_files_by_id_verification_post) | **POST** /verifications/files/{id}/verification | Start verification |
+| [**verifications_files_post**](VerificationsApi.md#verifications_files_post) | **POST** /verifications/files | Upload File with Emails |
+| [**verifications_files_result_get**](VerificationsApi.md#verifications_files_result_get) | **GET** /verifications/files/result | Get Files Verification Results |
 | [**verifications_get**](VerificationsApi.md#verifications_get) | **GET** /verifications | Get Emails Verification Results |
 
 
@@ -445,13 +446,83 @@ end
 - **Accept**: application/json
 
 
+## verifications_files_by_id_verification_post
+
+> verifications_files_by_id_verification_post(id)
+
+Start verification
+
+Start a verification of the previously uploaded file with emails. Required Access Level: VerifyEmails
+
+### Examples
+
+```ruby
+require 'time'
+require 'ElasticEmail'
+# setup authorization
+ElasticEmail.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['apikey'] = 'Bearer'
+end
+
+api_instance = ElasticEmail::VerificationsApi.new
+id = 'id_example' # String | File ID to start verification
+
+begin
+  # Start verification
+  api_instance.verifications_files_by_id_verification_post(id)
+rescue ElasticEmail::ApiError => e
+  puts "Error when calling VerificationsApi->verifications_files_by_id_verification_post: #{e}"
+end
+```
+
+#### Using the verifications_files_by_id_verification_post_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> verifications_files_by_id_verification_post_with_http_info(id)
+
+```ruby
+begin
+  # Start verification
+  data, status_code, headers = api_instance.verifications_files_by_id_verification_post_with_http_info(id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue ElasticEmail::ApiError => e
+  puts "Error when calling VerificationsApi->verifications_files_by_id_verification_post_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | File ID to start verification |  |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
 ## verifications_files_post
 
 > <VerificationFileResult> verifications_files_post(opts)
 
-Verify From File
+Upload File with Emails
 
-Uploads a CSV file with list of emails to verify. An 'email' column is required. Required Access Level: VerifyEmails
+Uploads a CSV file with list of emails that can then be triggered for verification. An 'email' column is required. Required Access Level: VerifyEmails
 
 ### Examples
 
@@ -472,7 +543,7 @@ opts = {
 }
 
 begin
-  # Verify From File
+  # Upload File with Emails
   result = api_instance.verifications_files_post(opts)
   p result
 rescue ElasticEmail::ApiError => e
@@ -488,7 +559,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Verify From File
+  # Upload File with Emails
   data, status_code, headers = api_instance.verifications_files_post_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -522,7 +593,7 @@ end
 
 > <Array<VerificationFileResult>> verifications_files_result_get
 
-Get Simple Files Verification Results
+Get Files Verification Results
 
 Returns a list of uploaded files, their statuses and results. Required Access Level: ViewEmailVerifications
 
@@ -542,7 +613,7 @@ end
 api_instance = ElasticEmail::VerificationsApi.new
 
 begin
-  # Get Simple Files Verification Results
+  # Get Files Verification Results
   result = api_instance.verifications_files_result_get
   p result
 rescue ElasticEmail::ApiError => e
@@ -558,7 +629,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get Simple Files Verification Results
+  # Get Files Verification Results
   data, status_code, headers = api_instance.verifications_files_result_get_with_http_info
   p status_code # => 2xx
   p headers # => { ... }

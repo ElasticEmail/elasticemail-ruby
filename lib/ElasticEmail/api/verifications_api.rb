@@ -399,8 +399,69 @@ module ElasticEmail
       return data, status_code, headers
     end
 
-    # Verify From File
-    # Uploads a CSV file with list of emails to verify. An 'email' column is required. Required Access Level: VerifyEmails
+    # Start verification
+    # Start a verification of the previously uploaded file with emails. Required Access Level: VerifyEmails
+    # @param id [String] File ID to start verification
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def verifications_files_by_id_verification_post(id, opts = {})
+      verifications_files_by_id_verification_post_with_http_info(id, opts)
+      nil
+    end
+
+    # Start verification
+    # Start a verification of the previously uploaded file with emails. Required Access Level: VerifyEmails
+    # @param id [String] File ID to start verification
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def verifications_files_by_id_verification_post_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: VerificationsApi.verifications_files_by_id_verification_post ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling VerificationsApi.verifications_files_by_id_verification_post"
+      end
+      # resource path
+      local_var_path = '/verifications/files/{id}/verification'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apikey']
+
+      new_options = opts.merge(
+        :operation => :"VerificationsApi.verifications_files_by_id_verification_post",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: VerificationsApi#verifications_files_by_id_verification_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Upload File with Emails
+    # Uploads a CSV file with list of emails that can then be triggered for verification. An 'email' column is required. Required Access Level: VerifyEmails
     # @param [Hash] opts the optional parameters
     # @option opts [File] :file 
     # @return [VerificationFileResult]
@@ -409,8 +470,8 @@ module ElasticEmail
       data
     end
 
-    # Verify From File
-    # Uploads a CSV file with list of emails to verify. An &#39;email&#39; column is required. Required Access Level: VerifyEmails
+    # Upload File with Emails
+    # Uploads a CSV file with list of emails that can then be triggered for verification. An &#39;email&#39; column is required. Required Access Level: VerifyEmails
     # @param [Hash] opts the optional parameters
     # @option opts [File] :file 
     # @return [Array<(VerificationFileResult, Integer, Hash)>] VerificationFileResult data, response status code and response headers
@@ -461,7 +522,7 @@ module ElasticEmail
       return data, status_code, headers
     end
 
-    # Get Simple Files Verification Results
+    # Get Files Verification Results
     # Returns a list of uploaded files, their statuses and results. Required Access Level: ViewEmailVerifications
     # @param [Hash] opts the optional parameters
     # @return [Array<VerificationFileResult>]
@@ -470,7 +531,7 @@ module ElasticEmail
       data
     end
 
-    # Get Simple Files Verification Results
+    # Get Files Verification Results
     # Returns a list of uploaded files, their statuses and results. Required Access Level: ViewEmailVerifications
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<VerificationFileResult>, Integer, Hash)>] Array<VerificationFileResult> data, response status code and response headers

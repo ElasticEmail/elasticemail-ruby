@@ -4,9 +4,9 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **binary_content** | **String** |  | [optional] |
-| **name** | **String** | Filename | [optional] |
-| **content_type** | **String** |  | [optional] |
+| **binary_content** | **String** | File&#39;s content as byte array (or a Base64 string) | [optional] |
+| **name** | **String** | Display name of the file | [optional] |
+| **content_type** | **String** | MIME content type | [optional] |
 
 ## Example
 
@@ -15,7 +15,7 @@ require 'ElasticEmail'
 
 instance = ElasticEmail::MessageAttachment.new(
   binary_content: null,
-  name: attachment.txt,
+  name: null,
   content_type: null
 )
 ```

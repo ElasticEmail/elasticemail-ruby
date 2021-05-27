@@ -15,11 +15,13 @@ require 'time'
 
 module ElasticEmail
   class MessageAttachment
+    # File's content as byte array (or a Base64 string)
     attr_accessor :binary_content
 
-    # Filename
+    # Display name of the file
     attr_accessor :name
 
+    # MIME content type
     attr_accessor :content_type
 
     # Attribute mapping from ruby-style variable name to JSON key.

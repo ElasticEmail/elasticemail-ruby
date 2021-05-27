@@ -11,5 +11,5 @@ OpenAPI Generator version: 5.0.1
 =end
 
 module ElasticEmail
-  VERSION = '4.0.11'
+  VERSION = '4.0.12'
 end
