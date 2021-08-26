@@ -35,7 +35,7 @@ end
 
 api_instance = ElasticEmail::SubAccountsApi.new
 email = 'mail@example.com' # String | Email address of Sub-Account
-subaccount_email_credits_payload = ElasticEmail::SubaccountEmailCreditsPayload.new # SubaccountEmailCreditsPayload | Amount of email credits to add or subtract from the current SubAccount email credits pool (positive or negative value)
+subaccount_email_credits_payload = ElasticEmail::SubaccountEmailCreditsPayload.new({credits: 37}) # SubaccountEmailCreditsPayload | Amount of email credits to add or subtract from the current SubAccount email credits pool (positive or negative value)
 
 begin
   # Add, Subtract Email Credits
@@ -395,7 +395,7 @@ ElasticEmail.configure do |config|
 end
 
 api_instance = ElasticEmail::SubAccountsApi.new
-subaccount_payload = ElasticEmail::SubaccountPayload.new # SubaccountPayload | 
+subaccount_payload = ElasticEmail::SubaccountPayload.new({email: 'mail@example.com', password: '********'}) # SubaccountPayload | 
 
 begin
   # Add SubAccount

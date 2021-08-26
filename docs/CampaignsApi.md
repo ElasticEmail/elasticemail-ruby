@@ -175,7 +175,7 @@ end
 
 api_instance = ElasticEmail::CampaignsApi.new
 name = 'name_example' # String | Name of Campaign to update
-campaign = ElasticEmail::Campaign.new # Campaign | JSON representation of a campaign
+campaign = ElasticEmail::Campaign.new({name: 'name_example', recipients: ElasticEmail::CampaignRecipient.new}) # Campaign | JSON representation of a campaign
 
 begin
   # Update Campaign
@@ -324,7 +324,7 @@ ElasticEmail.configure do |config|
 end
 
 api_instance = ElasticEmail::CampaignsApi.new
-campaign = ElasticEmail::Campaign.new # Campaign | JSON representation of a campaign
+campaign = ElasticEmail::Campaign.new({name: 'name_example', recipients: ElasticEmail::CampaignRecipient.new}) # Campaign | JSON representation of a campaign
 
 begin
   # Add Campaign

@@ -4,9 +4,9 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **list_name** | **String** | Name of your list. | [optional] |
+| **list_name** | **String** | Name of your list. |  |
 | **allow_unsubscribe** | **Boolean** | True: Allow unsubscribing from this list. Otherwise, false | [optional] |
-| **emails** | **Array&lt;String&gt;** | Comma delimited list of existing contact emails that should be added to this list | [optional] |
+| **emails** | **Array&lt;String&gt;** | Comma delimited list of existing contact emails that should be added to this list. Leave empty for all contacts | [optional] |
 
 ## Example
 

@@ -188,7 +188,7 @@ end
 
 api_instance = ElasticEmail::SecurityApi.new
 name = 'name_example' # String | Name of the ApiKey
-api_key_payload = ElasticEmail::ApiKeyPayload.new # ApiKeyPayload | 
+api_key_payload = ElasticEmail::ApiKeyPayload.new({name: 'name_example', access_level: [ElasticEmail::AccessLevel::NONE]}) # ApiKeyPayload | 
 
 begin
   # Update ApiKey
@@ -333,7 +333,7 @@ ElasticEmail.configure do |config|
 end
 
 api_instance = ElasticEmail::SecurityApi.new
-api_key_payload = ElasticEmail::ApiKeyPayload.new # ApiKeyPayload | 
+api_key_payload = ElasticEmail::ApiKeyPayload.new({name: 'name_example', access_level: [ElasticEmail::AccessLevel::NONE]}) # ApiKeyPayload | 
 
 begin
   # Add ApiKey
@@ -554,7 +554,7 @@ end
 
 api_instance = ElasticEmail::SecurityApi.new
 name = 'name_example' # String | Name of the SMTP Credential
-smtp_credentials_payload = ElasticEmail::SmtpCredentialsPayload.new # SmtpCredentialsPayload | 
+smtp_credentials_payload = ElasticEmail::SmtpCredentialsPayload.new({name: 'name_example'}) # SmtpCredentialsPayload | 
 
 begin
   # Update SMTP Credential
@@ -699,7 +699,7 @@ ElasticEmail.configure do |config|
 end
 
 api_instance = ElasticEmail::SecurityApi.new
-smtp_credentials_payload = ElasticEmail::SmtpCredentialsPayload.new # SmtpCredentialsPayload | 
+smtp_credentials_payload = ElasticEmail::SmtpCredentialsPayload.new({name: 'name_example'}) # SmtpCredentialsPayload | 
 
 begin
   # Add SMTP Credential

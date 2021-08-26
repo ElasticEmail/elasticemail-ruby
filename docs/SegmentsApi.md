@@ -175,7 +175,7 @@ end
 
 api_instance = ElasticEmail::SegmentsApi.new
 name = 'My Segment 1' # String | Name of your segment.
-segment_payload = ElasticEmail::SegmentPayload.new # SegmentPayload | 
+segment_payload = ElasticEmail::SegmentPayload.new({name: 'name_example', rule: 'rule_example'}) # SegmentPayload | 
 
 begin
   # Update Segment
@@ -322,7 +322,7 @@ ElasticEmail.configure do |config|
 end
 
 api_instance = ElasticEmail::SegmentsApi.new
-segment_payload = ElasticEmail::SegmentPayload.new # SegmentPayload | 
+segment_payload = ElasticEmail::SegmentPayload.new({name: 'name_example', rule: 'rule_example'}) # SegmentPayload | 
 
 begin
   # Add Segment

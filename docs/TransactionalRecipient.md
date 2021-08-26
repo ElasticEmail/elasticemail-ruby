@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **to** | **Array&lt;String&gt;** | List of recipients (visible to others) | [optional] |
+| **to** | **Array&lt;String&gt;** | List of recipients (visible to others) |  |
 | **cc** | **Array&lt;String&gt;** | List of Carbon Copy recipients (visible to others) | [optional] |
 | **bcc** | **Array&lt;String&gt;** | List of Blind Carbon Copy recipients (hidden from other recipients) | [optional] |
 

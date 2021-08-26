@@ -320,7 +320,7 @@ ElasticEmail.configure do |config|
 end
 
 api_instance = ElasticEmail::FilesApi.new
-file_payload = ElasticEmail::FilePayload.new # FilePayload | 
+file_payload = ElasticEmail::FilePayload.new({binary_content: 'binary_content_example'}) # FilePayload | 
 opts = {
   expires_after_days: 56 # Integer | After how many days should the file be deleted.
 }

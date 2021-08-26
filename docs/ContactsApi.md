@@ -702,7 +702,7 @@ ElasticEmail.configure do |config|
 end
 
 api_instance = ElasticEmail::ContactsApi.new
-contact_payload = [ElasticEmail::ContactPayload.new] # Array<ContactPayload> | 
+contact_payload = [ElasticEmail::ContactPayload.new({email: 'mail@example.com'})] # Array<ContactPayload> | 
 opts = {
   listnames: ['inner_example'] # Array<String> | Names of lists to which the uploaded contacts should be added to
 }

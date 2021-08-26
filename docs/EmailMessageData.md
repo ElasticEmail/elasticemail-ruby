@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **recipients** | [**Array&lt;EmailRecipient&gt;**](EmailRecipient.md) | List of recipients (visible to others) | [optional] |
+| **recipients** | [**Array&lt;EmailRecipient&gt;**](EmailRecipient.md) | List of recipients (visible to others) |  |
 | **content** | [**EmailContent**](EmailContent.md) | Proper e-mail content | [optional] |
 | **options** | [**Options**](Options.md) | E-mail configuration | [optional] |
 

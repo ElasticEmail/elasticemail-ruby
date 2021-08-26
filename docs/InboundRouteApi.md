@@ -176,7 +176,7 @@ end
 
 api_instance = ElasticEmail::InboundRouteApi.new
 id = 'id_example' # String | 
-inbound_payload = ElasticEmail::InboundPayload.new # InboundPayload | 
+inbound_payload = ElasticEmail::InboundPayload.new({filter: 'filter_example', name: 'name_example', filter_type: ElasticEmail::InboundRouteFilterType::EMAIL_ADDRESS, action_type: ElasticEmail::InboundRouteActionType::FORWARD_TO_EMAIL}) # InboundPayload | 
 
 begin
   # Update Route
@@ -316,7 +316,7 @@ ElasticEmail.configure do |config|
 end
 
 api_instance = ElasticEmail::InboundRouteApi.new
-sort_order_item = [ElasticEmail::SortOrderItem.new] # Array<SortOrderItem> | Change the ordering of inbound routes for when matching the inbound
+sort_order_item = [ElasticEmail::SortOrderItem.new({public_inbound_id: 'public_inbound_id_example', sort_order: 37})] # Array<SortOrderItem> | Change the ordering of inbound routes for when matching the inbound
 
 begin
   # Update Sorting
@@ -387,7 +387,7 @@ ElasticEmail.configure do |config|
 end
 
 api_instance = ElasticEmail::InboundRouteApi.new
-inbound_payload = ElasticEmail::InboundPayload.new # InboundPayload | 
+inbound_payload = ElasticEmail::InboundPayload.new({filter: 'filter_example', name: 'name_example', filter_type: ElasticEmail::InboundRouteFilterType::EMAIL_ADDRESS, action_type: ElasticEmail::InboundRouteActionType::FORWARD_TO_EMAIL}) # InboundPayload | 
 
 begin
   # Create Route

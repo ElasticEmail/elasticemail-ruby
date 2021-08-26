@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **email** | **String** | Proper email address. | [optional] |
+| **email** | **String** | Proper email address. |  |
 | **status** | [**ContactStatus**](ContactStatus.md) | Status of the given resource | [optional] |
 | **first_name** | **String** | First name. | [optional] |
 | **last_name** | **String** | Last name. | [optional] |

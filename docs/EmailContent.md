@@ -33,7 +33,7 @@ instance = ElasticEmail::EmailContent.new(
   reply_to: John Doe &lt;email@domain.com&gt;,
   subject: Hello!,
   template_name: Template01,
-  attach_files: null,
+  attach_files: [ &quot;preuploaded.jpg&quot; ],
   utm: null
 )
 ```

@@ -469,7 +469,7 @@ ElasticEmail.configure do |config|
 end
 
 api_instance = ElasticEmail::ListsApi.new
-list_payload = ElasticEmail::ListPayload.new # ListPayload | 
+list_payload = ElasticEmail::ListPayload.new({list_name: 'My List 1'}) # ListPayload | 
 
 begin
   # Add List

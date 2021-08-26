@@ -103,7 +103,7 @@ ElasticEmail.configure do |config|
 end
 
 api_instance = ElasticEmail::EmailsApi.new
-merge_email_payload = ElasticEmail::MergeEmailPayload.new # MergeEmailPayload | Email data
+merge_email_payload = ElasticEmail::MergeEmailPayload.new({merge_file: ElasticEmail::MessageAttachment.new({binary_content: 'binary_content_example'})}) # MergeEmailPayload | Email data
 
 begin
   # Send Bulk Emails CSV
@@ -174,7 +174,7 @@ ElasticEmail.configure do |config|
 end
 
 api_instance = ElasticEmail::EmailsApi.new
-email_message_data = ElasticEmail::EmailMessageData.new # EmailMessageData | Email data
+email_message_data = ElasticEmail::EmailMessageData.new({recipients: [ElasticEmail::EmailRecipient.new({email: 'mail@example.com'})]}) # EmailMessageData | Email data
 
 begin
   # Send Bulk Emails
@@ -245,7 +245,7 @@ ElasticEmail.configure do |config|
 end
 
 api_instance = ElasticEmail::EmailsApi.new
-email_transactional_message_data = ElasticEmail::EmailTransactionalMessageData.new # EmailTransactionalMessageData | Email data
+email_transactional_message_data = ElasticEmail::EmailTransactionalMessageData.new({recipients: ElasticEmail::TransactionalRecipient.new({to: ['to_example']})}) # EmailTransactionalMessageData | Email data
 
 begin
   # Send Transactional Email

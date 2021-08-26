@@ -175,7 +175,7 @@ end
 
 api_instance = ElasticEmail::TemplatesApi.new
 name = 'Template01' # String | Name of template.
-template_payload = ElasticEmail::TemplatePayload.new # TemplatePayload | 
+template_payload = ElasticEmail::TemplatePayload.new({name: 'name_example'}) # TemplatePayload | 
 
 begin
   # Update Template
@@ -326,7 +326,7 @@ ElasticEmail.configure do |config|
 end
 
 api_instance = ElasticEmail::TemplatesApi.new
-template_payload = ElasticEmail::TemplatePayload.new # TemplatePayload | 
+template_payload = ElasticEmail::TemplatePayload.new({name: 'name_example'}) # TemplatePayload | 
 
 begin
   # Add Template
