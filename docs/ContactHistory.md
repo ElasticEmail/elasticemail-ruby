@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **event_type** | [**ContactHistEventType**](ContactHistEventType.md) | Type of event occured on this Contact. | [optional] |
+| **event_type** | [**ContactHistEventType**](ContactHistEventType.md) |  | [optional][default to &#39;Opened&#39;] |
 | **event_date** | **Time** | Formatted date of event. | [optional] |
 | **channel_name** | **String** | Name of channel this event occured on | [optional] |
 | **template_name** | **String** | Name of template this event occured on | [optional] |

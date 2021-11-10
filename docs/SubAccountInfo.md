@@ -6,12 +6,12 @@
 | ---- | ---- | ----------- | ----- |
 | **public_account_id** | **String** | Public key for limited access to your Account such as contact/add so you can use it safely on public websites. | [optional] |
 | **email** | **String** | Proper email address. | [optional] |
-| **settings** | [**SubaccountSettingsInfo**](SubaccountSettingsInfo.md) | SubAccount settings | [optional] |
+| **settings** | [**SubaccountSettingsInfo**](SubaccountSettingsInfo.md) |  | [optional] |
 | **last_activity** | **Time** | Date of last activity on Account | [optional] |
 | **email_credits** | **Integer** | Amount of email credits | [optional] |
 | **total_emails_sent** | **Integer** | Amount of emails sent from this Account | [optional] |
 | **reputation** | **Float** | Numeric reputation | [optional] |
-| **status** | [**AccountStatusEnum**](AccountStatusEnum.md) | Account&#39;s current status. | [optional] |
+| **status** | [**AccountStatusEnum**](AccountStatusEnum.md) |  | [optional][default to &#39;Disabled&#39;] |
 | **contacts_count** | **Integer** | How many contacts this SubAccount has stored | [optional] |
 
 ## Example

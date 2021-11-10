@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **optimize_for** | [**SplitOptimizationType**](SplitOptimizationType.md) | Type of results by which to determine the winner template (content) | [optional] |
+| **optimize_for** | [**SplitOptimizationType**](SplitOptimizationType.md) |  | [optional][default to &#39;Opens&#39;] |
 | **optimize_period_minutes** | **Integer** | For how long should the results be measured until determining the winner template (content) | [optional] |
 
 ## Example

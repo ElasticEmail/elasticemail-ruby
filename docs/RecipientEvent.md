@@ -9,10 +9,10 @@
 | **from_email** | **String** | Default From: email address. | [optional] |
 | **to** | **String** | Ending date for search in YYYY-MM-DDThh:mm:ss format. | [optional] |
 | **subject** | **String** | Default subject of email. | [optional] |
-| **event_type** | [**EventType**](EventType.md) | Type of an Event | [optional] |
+| **event_type** | [**EventType**](EventType.md) |  | [optional][default to &#39;Submission&#39;] |
 | **event_date** | **Time** | Creation date | [optional] |
 | **channel_name** | **String** | Name of selected channel. | [optional] |
-| **message_category** | [**MessageCategory**](MessageCategory.md) | Message category | [optional] |
+| **message_category** | [**MessageCategory**](MessageCategory.md) |  | [optional][default to &#39;Unknown&#39;] |
 | **next_try_on** | **Time** | Date of next try | [optional] |
 | **message** | **String** | Content of message, HTML encoded | [optional] |
 | **ip_address** | **String** | IP which this email was sent through | [optional] |

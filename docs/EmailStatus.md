@@ -7,7 +7,7 @@
 | **from** | **String** | Email address this email was sent from. | [optional] |
 | **to** | **String** | Email address this email was sent to. | [optional] |
 | **date** | **Time** | Date the email was submitted. | [optional] |
-| **status** | [**LogJobStatus**](LogJobStatus.md) | Value of email&#39;s status | [optional] |
+| **status** | [**LogJobStatus**](LogJobStatus.md) |  | [optional][default to &#39;All&#39;] |
 | **status_name** | **String** | Name of email&#39;s status | [optional] |
 | **status_change_date** | **Time** | Date of last status change. | [optional] |
 | **date_sent** | **Time** | Date when the email was sent | [optional] |

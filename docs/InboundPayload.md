@@ -6,8 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **filter** | **String** | Filter of the inbound data |  |
 | **name** | **String** | Name of this route |  |
-| **filter_type** | [**InboundRouteFilterType**](InboundRouteFilterType.md) | Type of the filter |  |
-| **action_type** | [**InboundRouteActionType**](InboundRouteActionType.md) | Type of action to take |  |
+| **filter_type** | [**InboundRouteFilterType**](InboundRouteFilterType.md) |  | [default to &#39;EmailAddress&#39;] |
+| **action_type** | [**InboundRouteActionType**](InboundRouteActionType.md) |  | [default to &#39;ForwardToEmail&#39;] |
 | **email_address** | **String** | Email to forward the inbound to | [optional] |
 | **http_address** | **String** | Address to notify about the inbound | [optional] |
 

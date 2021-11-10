@@ -509,10 +509,10 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **file_format** | [**ExportFileFormats**](.md) | Format of the exported file | [optional] |
+| **file_format** | [**ExportFileFormats**](.md) | Format of the exported file | [optional][default to &#39;Csv&#39;] |
 | **rule** | **String** | Query used for filtering. | [optional] |
 | **emails** | [**Array&lt;String&gt;**](String.md) | Comma delimited list of contact emails | [optional] |
-| **compression_format** | [**CompressionFormat**](.md) | FileResponse compression format. None or Zip. | [optional] |
+| **compression_format** | [**CompressionFormat**](.md) | FileResponse compression format. None or Zip. | [optional][default to &#39;None&#39;] |
 | **file_name** | **String** | Name of your file including extension. | [optional] |
 
 ### Return type

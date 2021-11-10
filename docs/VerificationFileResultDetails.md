@@ -7,8 +7,8 @@
 | **verification_result** | [**Array&lt;EmailValidationResult&gt;**](EmailValidationResult.md) | Verification result&#39;s details | [optional] |
 | **verification_id** | **String** | Identifier of this verification result | [optional] |
 | **filename** | **String** | Origin file name | [optional] |
-| **verification_status** | [**VerificationStatus**](VerificationStatus.md) | In what state does this verification result currently is | [optional] |
-| **file_upload_result** | [**FileUploadResult**](FileUploadResult.md) | How many emails were detected in the file for verification | [optional] |
+| **verification_status** | [**VerificationStatus**](VerificationStatus.md) |  | [optional][default to &#39;Processing&#39;] |
+| **file_upload_result** | [**FileUploadResult**](FileUploadResult.md) |  | [optional] |
 | **date_added** | **Time** | Date of creation in YYYY-MM-DDThh:ii:ss format | [optional] |
 | **source** | **String** | Origin file extension | [optional] |
 

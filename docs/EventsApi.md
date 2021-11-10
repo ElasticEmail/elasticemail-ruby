@@ -78,7 +78,7 @@ end
 | **transactionid** | **String** | ID number of transaction |  |
 | **from** | **Time** | Starting date for search in YYYY-MM-DDThh:mm:ss format. | [optional] |
 | **to** | **Time** | Ending date for search in YYYY-MM-DDThh:mm:ss format. | [optional] |
-| **order_by** | [**EventsOrderBy**](.md) |  | [optional] |
+| **order_by** | [**EventsOrderBy**](.md) |  | [optional][default to &#39;DateDescending&#39;] |
 | **limit** | **Integer** | Maximum number of returned items. | [optional] |
 | **offset** | **Integer** | How many items should be returned ahead. | [optional] |
 
@@ -163,8 +163,8 @@ end
 | **event_types** | [**Array&lt;EventType&gt;**](EventType.md) | Types of Events to return | [optional] |
 | **from** | **Time** | Starting date for search in YYYY-MM-DDThh:mm:ss format. | [optional] |
 | **to** | **Time** | Ending date for search in YYYY-MM-DDThh:mm:ss format. | [optional] |
-| **file_format** | [**ExportFileFormats**](.md) | Format of the exported file | [optional] |
-| **compression_format** | [**CompressionFormat**](.md) | FileResponse compression format. None or Zip. | [optional] |
+| **file_format** | [**ExportFileFormats**](.md) | Format of the exported file | [optional][default to &#39;Csv&#39;] |
+| **compression_format** | [**CompressionFormat**](.md) | FileResponse compression format. None or Zip. | [optional][default to &#39;None&#39;] |
 | **file_name** | **String** | Name of your file including extension. | [optional] |
 
 ### Return type
@@ -248,7 +248,7 @@ end
 | **event_types** | [**Array&lt;EventType&gt;**](EventType.md) | Types of Events to return | [optional] |
 | **from** | **Time** | Starting date for search in YYYY-MM-DDThh:mm:ss format. | [optional] |
 | **to** | **Time** | Ending date for search in YYYY-MM-DDThh:mm:ss format. | [optional] |
-| **order_by** | [**EventsOrderBy**](.md) |  | [optional] |
+| **order_by** | [**EventsOrderBy**](.md) |  | [optional][default to &#39;DateDescending&#39;] |
 | **limit** | **Integer** | How many items to load. Maximum for this request is 1000 items | [optional] |
 | **offset** | **Integer** | How many items should be returned ahead. | [optional] |
 
@@ -473,8 +473,8 @@ end
 | **event_types** | [**Array&lt;EventType&gt;**](EventType.md) | Types of Events to return | [optional] |
 | **from** | **Time** | Starting date for search in YYYY-MM-DDThh:mm:ss format. | [optional] |
 | **to** | **Time** | Ending date for search in YYYY-MM-DDThh:mm:ss format. | [optional] |
-| **file_format** | [**ExportFileFormats**](.md) | Format of the exported file | [optional] |
-| **compression_format** | [**CompressionFormat**](.md) | FileResponse compression format. None or Zip. | [optional] |
+| **file_format** | [**ExportFileFormats**](.md) | Format of the exported file | [optional][default to &#39;Csv&#39;] |
+| **compression_format** | [**CompressionFormat**](.md) | FileResponse compression format. None or Zip. | [optional][default to &#39;None&#39;] |
 | **file_name** | **String** | Name of your file including extension. | [optional] |
 
 ### Return type
@@ -556,7 +556,7 @@ end
 | **event_types** | [**Array&lt;EventType&gt;**](EventType.md) | Types of Events to return | [optional] |
 | **from** | **Time** | Starting date for search in YYYY-MM-DDThh:mm:ss format. | [optional] |
 | **to** | **Time** | Ending date for search in YYYY-MM-DDThh:mm:ss format. | [optional] |
-| **order_by** | [**EventsOrderBy**](.md) |  | [optional] |
+| **order_by** | [**EventsOrderBy**](.md) |  | [optional][default to &#39;DateDescending&#39;] |
 | **limit** | **Integer** | How many items to load. Maximum for this request is 1000 items | [optional] |
 | **offset** | **Integer** | How many items should be returned ahead. | [optional] |
 

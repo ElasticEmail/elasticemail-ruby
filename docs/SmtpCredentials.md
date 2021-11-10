@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **access_level** | [**AccessLevel**](AccessLevel.md) | Access level of this Smtp Credential. | [optional] |
+| **access_level** | [**AccessLevel**](AccessLevel.md) |  | [optional][default to &#39;None&#39;] |
 | **name** | **String** | Name of the key. | [optional] |
 | **date_created** | **Time** | Date this SmtpCredential was created. | [optional] |
 | **last_use** | **Time** | Date this SmtpCredential was last used. | [optional] |
