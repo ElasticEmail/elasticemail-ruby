@@ -11,6 +11,7 @@
 | **max_contacts** | **Integer** | Maximum number of contacts the Account can have. 0 means that parent account&#39;s limit is used. | [optional] |
 | **enable_private_ip_purchase** | **Boolean** | Can the SubAccount purchase Private IP for themselves | [optional] |
 | **pool_name** | **String** | Name of your custom IP Pool to be used in the sending process | [optional] |
+| **valid_sender_domain_only** | **Boolean** |  | [optional] |
 
 ## Example
 
@@ -24,7 +25,8 @@ instance = ElasticEmail::SubaccountEmailSettings.new(
   daily_send_limit: 100000,
   max_contacts: null,
   enable_private_ip_purchase: null,
-  pool_name: My Custom Pool
+  pool_name: My Custom Pool,
+  valid_sender_domain_only: null
 )
 ```
 
