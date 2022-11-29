@@ -6,7 +6,6 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 | ------ | ------------ | ----------- |
 | [**contacts_by_email_delete**](ContactsApi.md#contacts_by_email_delete) | **DELETE** /contacts/{email} | Delete Contact |
 | [**contacts_by_email_get**](ContactsApi.md#contacts_by_email_get) | **GET** /contacts/{email} | Load Contact |
-| [**contacts_by_email_history_get**](ContactsApi.md#contacts_by_email_history_get) | **GET** /contacts/{email}/history | Load History |
 | [**contacts_by_email_put**](ContactsApi.md#contacts_by_email_put) | **PUT** /contacts/{email} | Update Contact |
 | [**contacts_delete_post**](ContactsApi.md#contacts_delete_post) | **POST** /contacts/delete | Delete Contacts Bulk |
 | [**contacts_export_by_id_status_get**](ContactsApi.md#contacts_export_by_id_status_get) | **GET** /contacts/export/{id}/status | Check Export Status |
@@ -146,83 +145,6 @@ end
 ### Return type
 
 [**Contact**](Contact.md)
-
-### Authorization
-
-[apikey](../README.md#apikey)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## contacts_by_email_history_get
-
-> <Array<ContactHistory>> contacts_by_email_history_get(email, opts)
-
-Load History
-
-Returns detailed history of specified Contact. Required Access Level: ViewContacts
-
-### Examples
-
-```ruby
-require 'time'
-require 'ElasticEmail'
-# setup authorization
-ElasticEmail.configure do |config|
-  # Configure API key authorization: apikey
-  config.api_key['apikey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apikey'] = 'Bearer'
-end
-
-api_instance = ElasticEmail::ContactsApi.new
-email = 'mail@example.com' # String | Proper email address.
-opts = {
-  limit: 100, # Integer | Maximum number of returned items.
-  offset: 20 # Integer | How many items should be returned ahead.
-}
-
-begin
-  # Load History
-  result = api_instance.contacts_by_email_history_get(email, opts)
-  p result
-rescue ElasticEmail::ApiError => e
-  puts "Error when calling ContactsApi->contacts_by_email_history_get: #{e}"
-end
-```
-
-#### Using the contacts_by_email_history_get_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<Array<ContactHistory>>, Integer, Hash)> contacts_by_email_history_get_with_http_info(email, opts)
-
-```ruby
-begin
-  # Load History
-  data, status_code, headers = api_instance.contacts_by_email_history_get_with_http_info(email, opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <Array<ContactHistory>>
-rescue ElasticEmail::ApiError => e
-  puts "Error when calling ContactsApi->contacts_by_email_history_get_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **email** | **String** | Proper email address. |  |
-| **limit** | **Integer** | Maximum number of returned items. | [optional] |
-| **offset** | **Integer** | How many items should be returned ahead. | [optional] |
-
-### Return type
-
-[**Array&lt;ContactHistory&gt;**](ContactHistory.md)
 
 ### Authorization
 
@@ -629,6 +551,7 @@ api_instance = ElasticEmail::ContactsApi.new
 opts = {
   list_name: 'list_name_example', # String | Name of an existing list to add these contacts to
   encoding_name: 'encoding_name_example', # String | In what encoding the file is uploaded
+  file_url: 'file_url_example', # String | Optional url of csv to import
   file: File.new('/path/to/some/file') # File | 
 }
 
@@ -664,6 +587,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **list_name** | **String** | Name of an existing list to add these contacts to | [optional] |
 | **encoding_name** | **String** | In what encoding the file is uploaded | [optional] |
+| **file_url** | **String** | Optional url of csv to import | [optional] |
 | **file** | **File** |  | [optional] |
 
 ### Return type

@@ -103,7 +103,7 @@ ElasticEmail.configure do |config|
 end
 
 api_instance = ElasticEmail::EmailsApi.new
-merge_email_payload = ElasticEmail::MergeEmailPayload.new({merge_file: ElasticEmail::MessageAttachment.new({binary_content: 'binary_content_example'})}) # MergeEmailPayload | Email data
+merge_email_payload = ElasticEmail::MergeEmailPayload.new({merge_file: ElasticEmail::MessageAttachment.new({binary_content: 'binary_content_example', name: 'name_example'})}) # MergeEmailPayload | Email data
 
 begin
   # Send Bulk Emails CSV
