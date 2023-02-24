@@ -58,6 +58,8 @@ ruby -Ilib script.rb
 
 ## Getting Started
 
+Below is a code snippet that will allow you to send your first email with us. Please make sure that you have registered an account and created an API key before trying to run the code.
+
 Please follow the [installation](#installation) procedure and then run the following code:
 
 ```ruby
@@ -66,20 +68,29 @@ require 'ElasticEmail'
 
 # Setup authorization
 ElasticEmail.configure do |config|
-  # Configure API key authorization: apikey
-  config.api_key['apikey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apikey'] = 'Bearer'
+  config.api_key['apikey'] = '<your API key>'
 end
 
-api_instance = ElasticEmail::CampaignsApi.new
-name = 'name_example' # String | Name of Campaign to delete
-
+api_instance = ElasticEmail::EmailsApi.new
+ 
+email = ElasticEmail::EmailMessageData.new(
+  Hash[
+    "recipients" => [ ElasticEmail::EmailRecipient.new(Hash["email" => "<to address>"]) ],
+    "content" => ElasticEmail::EmailContent.new(
+      "body" => [ ElasticEmail::BodyPart.new(
+        "content" => "My test email content ;)",
+        "content_type" => "HTML"
+        ) ],
+      "subject" => "Ruby EE lib test",
+      "from" => "<from address>"
+    )
+  ]
+)
+ 
 begin
-  #Delete Campaign
-  api_instance.campaigns_by_name_delete(name)
+  api_instance.emails_post(email)
 rescue ElasticEmail::ApiError => e
-  puts "Exception when calling CampaignsApi->campaigns_by_name_delete: #{e}"
+  puts "Exception when calling EE API: #{e}"
 end
 
 ```
