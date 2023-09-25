@@ -13,6 +13,8 @@
 | **reason** | **String** | All detected issues | [optional] |
 | **date_added** | **Time** | Date of creation in YYYY-MM-DDThh:ii:ss format | [optional] |
 | **result** | [**EmailValidationStatus**](EmailValidationStatus.md) |  | [optional][default to &#39;None&#39;] |
+| **predicted_score** | **Float** |  | [optional] |
+| **predicted_status** | [**EmailPredictedValidationStatus**](EmailPredictedValidationStatus.md) |  | [optional][default to &#39;None&#39;] |
 
 ## Example
 
@@ -28,7 +30,9 @@ instance = ElasticEmail::EmailValidationResult.new(
   role: null,
   reason: null,
   date_added: null,
-  result: null
+  result: null,
+  predicted_score: null,
+  predicted_status: null
 )
 ```
 

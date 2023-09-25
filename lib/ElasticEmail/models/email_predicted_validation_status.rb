@@ -14,17 +14,15 @@ require 'date'
 require 'time'
 
 module ElasticEmail
-  class ContactSource
-    DELIVERY_API = "DeliveryApi".freeze
-    MANUAL_INPUT = "ManualInput".freeze
-    FILE_UPLOAD = "FileUpload".freeze
-    WEB_FORM = "WebForm".freeze
-    CONTACT_API = "ContactApi".freeze
-    VERIFICATION_API = "VerificationApi".freeze
-    FILE_VERIFICATION_API = "FileVerificationApi".freeze
+  class EmailPredictedValidationStatus
+    NONE = "None".freeze
+    VALID = "Valid".freeze
+    LOW_RISK = "LowRisk".freeze
+    HIGH_RISK = "HighRisk".freeze
+    INVALID = "Invalid".freeze
 
     def self.all_vars
-      @all_vars ||= [DELIVERY_API, MANUAL_INPUT, FILE_UPLOAD, WEB_FORM, CONTACT_API, VERIFICATION_API, FILE_VERIFICATION_API].freeze
+      @all_vars ||= [NONE, VALID, LOW_RISK, HIGH_RISK, INVALID].freeze
     end
 
     # Builds the enum from string
@@ -38,8 +36,8 @@ module ElasticEmail
     # @param [String] The enum value in the form of the string
     # @return [String] The enum value
     def build_from_hash(value)
-      return value if ContactSource.all_vars.include?(value)
-      raise "Invalid ENUM value #{value} for class #ContactSource"
+      return value if EmailPredictedValidationStatus.all_vars.include?(value)
+      raise "Invalid ENUM value #{value} for class #EmailPredictedValidationStatus"
     end
   end
 end
