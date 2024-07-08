@@ -10,7 +10,7 @@
 | **headers** | **Hash&lt;String, String&gt;** | A key-value collection of custom e-mail headers. | [optional] |
 | **postback** | **String** | Postback header. | [optional] |
 | **envelope_from** | **String** | E-mail with an optional name to be used as the envelope from address (e.g.: John Doe &lt;email@domain.com&gt;) | [optional] |
-| **from** | **String** | Your e-mail with an optional name (e.g.: John Doe &lt;email@domain.com&gt;) | [optional] |
+| **from** | **String** | Your e-mail with an optional name (e.g.: John Doe &lt;email@domain.com&gt;) |  |
 | **reply_to** | **String** | To what address should the recipients reply to (e.g. John Doe &lt;email@domain.com&gt;) | [optional] |
 | **subject** | **String** | Default subject of email. | [optional] |
 | **template_name** | **String** | Name of template. | [optional] |
@@ -33,7 +33,7 @@ instance = ElasticEmail::EmailContent.new(
   reply_to: John Doe &lt;email@domain.com&gt;,
   subject: Hello!,
   template_name: Template01,
-  attach_files: [ &quot;preuploaded.jpg&quot; ],
+  attach_files: [&quot;preuploaded.jpg&quot;],
   utm: null
 )
 ```

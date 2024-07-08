@@ -11,9 +11,9 @@
 | **disposable** | **Boolean** | Does the email have a temporary domain | [optional] |
 | **role** | **Boolean** | Is an email a role email (e.g. info@, noreply@ etc.) | [optional] |
 | **reason** | **String** | All detected issues | [optional] |
-| **date_added** | **Time** | Date of creation in YYYY-MM-DDThh:ii:ss format | [optional] |
+| **date_added** | **Time** | Added date | [optional] |
 | **result** | [**EmailValidationStatus**](EmailValidationStatus.md) |  | [optional][default to &#39;None&#39;] |
-| **predicted_score** | **Float** |  | [optional] |
+| **predicted_score** | **Float** | Predicted score | [optional] |
 | **predicted_status** | [**EmailPredictedValidationStatus**](EmailPredictedValidationStatus.md) |  | [optional][default to &#39;None&#39;] |
 
 ## Example

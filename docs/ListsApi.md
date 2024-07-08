@@ -4,6 +4,7 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**lists_by_listname_contacts_get**](ListsApi.md#lists_by_listname_contacts_get) | **GET** /lists/{listname}/contacts | Load Contacts in List |
 | [**lists_by_name_contacts_post**](ListsApi.md#lists_by_name_contacts_post) | **POST** /lists/{name}/contacts | Add Contacts to List |
 | [**lists_by_name_contacts_remove_post**](ListsApi.md#lists_by_name_contacts_remove_post) | **POST** /lists/{name}/contacts/remove | Remove Contacts from List |
 | [**lists_by_name_delete**](ListsApi.md#lists_by_name_delete) | **DELETE** /lists/{name} | Delete List |
@@ -11,6 +12,83 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 | [**lists_by_name_put**](ListsApi.md#lists_by_name_put) | **PUT** /lists/{name} | Update List |
 | [**lists_get**](ListsApi.md#lists_get) | **GET** /lists | Load Lists |
 | [**lists_post**](ListsApi.md#lists_post) | **POST** /lists | Add List |
+
+
+## lists_by_listname_contacts_get
+
+> <Array<Contact>> lists_by_listname_contacts_get(listname, opts)
+
+Load Contacts in List
+
+Returns a list of contacts. Required Access Level: ViewContacts
+
+### Examples
+
+```ruby
+require 'time'
+require 'ElasticEmail'
+# setup authorization
+ElasticEmail.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['apikey'] = 'Bearer'
+end
+
+api_instance = ElasticEmail::ListsApi.new
+listname = 'My List 1' # String | Name of your list.
+opts = {
+  limit: 100, # Integer | Maximum number of returned items.
+  offset: 20 # Integer | How many items should be returned ahead.
+}
+
+begin
+  # Load Contacts in List
+  result = api_instance.lists_by_listname_contacts_get(listname, opts)
+  p result
+rescue ElasticEmail::ApiError => e
+  puts "Error when calling ListsApi->lists_by_listname_contacts_get: #{e}"
+end
+```
+
+#### Using the lists_by_listname_contacts_get_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<Contact>>, Integer, Hash)> lists_by_listname_contacts_get_with_http_info(listname, opts)
+
+```ruby
+begin
+  # Load Contacts in List
+  data, status_code, headers = api_instance.lists_by_listname_contacts_get_with_http_info(listname, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<Contact>>
+rescue ElasticEmail::ApiError => e
+  puts "Error when calling ListsApi->lists_by_listname_contacts_get_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **listname** | **String** | Name of your list. |  |
+| **limit** | **Integer** | Maximum number of returned items. | [optional] |
+| **offset** | **Integer** | How many items should be returned ahead. | [optional] |
+
+### Return type
+
+[**Array&lt;Contact&gt;**](Contact.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## lists_by_name_contacts_post

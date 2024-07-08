@@ -16,7 +16,7 @@ require 'ElasticEmail'
 instance = ElasticEmail::ListPayload.new(
   list_name: My List 1,
   allow_unsubscribe: false,
-  emails: null
+  emails: [&quot;john.doe@sample.com&quot;]
 )
 ```
 

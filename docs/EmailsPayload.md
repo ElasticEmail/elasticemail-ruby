@@ -14,7 +14,7 @@ require 'ElasticEmail'
 
 instance = ElasticEmail::EmailsPayload.new(
   rule: null,
-  emails: [ &quot;john.doe@sample.com&quot; ]
+  emails: [&quot;john.doe@sample.com&quot;]
 )
 ```
 
