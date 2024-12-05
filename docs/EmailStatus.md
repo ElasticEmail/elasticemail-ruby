@@ -16,6 +16,7 @@
 | **error_message** | **String** | Detailed error or bounced message. | [optional] |
 | **transaction_id** | **String** | ID number of transaction | [optional] |
 | **envelope_from** | **String** | Envelope from address | [optional] |
+| **error_category** | [**MessageCategoryEnum**](MessageCategoryEnum.md) |  | [optional][default to &#39;Unknown&#39;] |
 
 ## Example
 
@@ -34,7 +35,8 @@ instance = ElasticEmail::EmailStatus.new(
   date_clicked: null,
   error_message: null,
   transaction_id: TransactionID,
-  envelope_from: null
+  envelope_from: null,
+  error_category: null
 )
 ```
 

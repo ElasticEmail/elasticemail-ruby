@@ -6,6 +6,7 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 | ------ | ------------ | ----------- |
 | [**campaigns_by_name_delete**](CampaignsApi.md#campaigns_by_name_delete) | **DELETE** /campaigns/{name} | Delete Campaign |
 | [**campaigns_by_name_get**](CampaignsApi.md#campaigns_by_name_get) | **GET** /campaigns/{name} | Load Campaign |
+| [**campaigns_by_name_pause_put**](CampaignsApi.md#campaigns_by_name_pause_put) | **PUT** /campaigns/{name}/pause | Pause Campaign |
 | [**campaigns_by_name_put**](CampaignsApi.md#campaigns_by_name_put) | **PUT** /campaigns/{name} | Update Campaign |
 | [**campaigns_get**](CampaignsApi.md#campaigns_get) | **GET** /campaigns | Load Campaigns |
 | [**campaigns_post**](CampaignsApi.md#campaigns_post) | **POST** /campaigns | Add Campaign |
@@ -150,6 +151,76 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+
+
+## campaigns_by_name_pause_put
+
+> campaigns_by_name_pause_put(name)
+
+Pause Campaign
+
+Pauses the specific campaign, cancelling emails that are waiting to be sent. Required Access Level: ModifyCampaigns
+
+### Examples
+
+```ruby
+require 'time'
+require 'ElasticEmail'
+# setup authorization
+ElasticEmail.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['apikey'] = 'Bearer'
+end
+
+api_instance = ElasticEmail::CampaignsApi.new
+name = 'name_example' # String | Name of Campaign to pause
+
+begin
+  # Pause Campaign
+  api_instance.campaigns_by_name_pause_put(name)
+rescue ElasticEmail::ApiError => e
+  puts "Error when calling CampaignsApi->campaigns_by_name_pause_put: #{e}"
+end
+```
+
+#### Using the campaigns_by_name_pause_put_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> campaigns_by_name_pause_put_with_http_info(name)
+
+```ruby
+begin
+  # Pause Campaign
+  data, status_code, headers = api_instance.campaigns_by_name_pause_put_with_http_info(name)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue ElasticEmail::ApiError => e
+  puts "Error when calling CampaignsApi->campaigns_by_name_pause_put_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **name** | **String** | Name of Campaign to pause |  |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 
 ## campaigns_by_name_put
