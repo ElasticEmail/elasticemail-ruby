@@ -20,7 +20,7 @@ module ElasticEmail
       @api_client = api_client
     end
     # Delete ApiKey
-    # Delete your existing ApiKey. Required Access Level: Security
+    # Delete your existing ApiKey. Required Access Level: ModifyAccessTokens
     # @param name [String] Name of the ApiKey
     # @param [Hash] opts the optional parameters
     # @option opts [String] :subaccount Email of the subaccount of which ApiKey should be deleted
@@ -31,7 +31,7 @@ module ElasticEmail
     end
 
     # Delete ApiKey
-    # Delete your existing ApiKey. Required Access Level: Security
+    # Delete your existing ApiKey. Required Access Level: ModifyAccessTokens
     # @param name [String] Name of the ApiKey
     # @param [Hash] opts the optional parameters
     # @option opts [String] :subaccount Email of the subaccount of which ApiKey should be deleted
@@ -150,7 +150,7 @@ module ElasticEmail
     end
 
     # Update ApiKey
-    # Update your existing ApiKey. Required Access Level: Security
+    # Update your existing ApiKey. Required Access Level: ModifyAccessTokens
     # @param name [String] Name of the ApiKey
     # @param api_key_payload [ApiKeyPayload] 
     # @param [Hash] opts the optional parameters
@@ -161,7 +161,7 @@ module ElasticEmail
     end
 
     # Update ApiKey
-    # Update your existing ApiKey. Required Access Level: Security
+    # Update your existing ApiKey. Required Access Level: ModifyAccessTokens
     # @param name [String] Name of the ApiKey
     # @param api_key_payload [ApiKeyPayload] 
     # @param [Hash] opts the optional parameters
@@ -284,7 +284,7 @@ module ElasticEmail
     end
 
     # Add ApiKey
-    # Add a new ApiKey. Required Access Level: Security
+    # Add a new ApiKey. Required Access Level: ModifyAccessTokens
     # @param api_key_payload [ApiKeyPayload] 
     # @param [Hash] opts the optional parameters
     # @return [NewApiKey]
@@ -294,7 +294,7 @@ module ElasticEmail
     end
 
     # Add ApiKey
-    # Add a new ApiKey. Required Access Level: Security
+    # Add a new ApiKey. Required Access Level: ModifyAccessTokens
     # @param api_key_payload [ApiKeyPayload] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(NewApiKey, Integer, Hash)>] NewApiKey data, response status code and response headers
@@ -352,7 +352,7 @@ module ElasticEmail
     end
 
     # Delete SMTP Credential
-    # Delete your existing SMTP Credentials. Required Access Level: Security
+    # Delete your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
     # @param name [String] Name of the SMTP Credential
     # @param [Hash] opts the optional parameters
     # @option opts [String] :subaccount Email of the subaccount of which credential should be deleted
@@ -363,7 +363,7 @@ module ElasticEmail
     end
 
     # Delete SMTP Credential
-    # Delete your existing SMTP Credentials. Required Access Level: Security
+    # Delete your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
     # @param name [String] Name of the SMTP Credential
     # @param [Hash] opts the optional parameters
     # @option opts [String] :subaccount Email of the subaccount of which credential should be deleted
@@ -482,7 +482,7 @@ module ElasticEmail
     end
 
     # Update SMTP Credential
-    # Update your existing SMTP Credentials. Required Access Level: Security
+    # Update your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
     # @param name [String] Name of the SMTP Credential
     # @param smtp_credentials_payload [SmtpCredentialsPayload] 
     # @param [Hash] opts the optional parameters
@@ -493,7 +493,7 @@ module ElasticEmail
     end
 
     # Update SMTP Credential
-    # Update your existing SMTP Credentials. Required Access Level: Security
+    # Update your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
     # @param name [String] Name of the SMTP Credential
     # @param smtp_credentials_payload [SmtpCredentialsPayload] 
     # @param [Hash] opts the optional parameters
@@ -616,7 +616,7 @@ module ElasticEmail
     end
 
     # Add SMTP Credential
-    # Add new SMTP Credential. Required Access Level: Security
+    # Add new SMTP Credential. Required Access Level: ModifyAccessTokens
     # @param smtp_credentials_payload [SmtpCredentialsPayload] 
     # @param [Hash] opts the optional parameters
     # @return [NewSmtpCredentials]
@@ -626,7 +626,7 @@ module ElasticEmail
     end
 
     # Add SMTP Credential
-    # Add new SMTP Credential. Required Access Level: Security
+    # Add new SMTP Credential. Required Access Level: ModifyAccessTokens
     # @param smtp_credentials_payload [SmtpCredentialsPayload] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(NewSmtpCredentials, Integer, Hash)>] NewSmtpCredentials data, response status code and response headers

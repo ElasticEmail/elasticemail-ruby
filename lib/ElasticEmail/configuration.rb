@@ -241,6 +241,13 @@ module ElasticEmail
             key: 'X-ElasticEmail-ApiKey',
             value: api_key_with_prefix('apikey')
           },
+        'ApiKeyAuthCustomBranding' =>
+          {
+            type: 'api_key',
+            in: 'header',
+            key: 'X-Auth-Token',
+            value: api_key_with_prefix('ApiKeyAuthCustomBranding')
+          },
       }
     end
 

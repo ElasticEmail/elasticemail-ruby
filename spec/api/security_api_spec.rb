@@ -34,7 +34,7 @@ describe 'SecurityApi' do
 
   # unit tests for security_apikeys_by_name_delete
   # Delete ApiKey
-  # Delete your existing ApiKey. Required Access Level: Security
+  # Delete your existing ApiKey. Required Access Level: ModifyAccessTokens
   # @param name Name of the ApiKey
   # @param [Hash] opts the optional parameters
   # @option opts [String] :subaccount Email of the subaccount of which ApiKey should be deleted
@@ -60,7 +60,7 @@ describe 'SecurityApi' do
 
   # unit tests for security_apikeys_by_name_put
   # Update ApiKey
-  # Update your existing ApiKey. Required Access Level: Security
+  # Update your existing ApiKey. Required Access Level: ModifyAccessTokens
   # @param name Name of the ApiKey
   # @param api_key_payload 
   # @param [Hash] opts the optional parameters
@@ -85,7 +85,7 @@ describe 'SecurityApi' do
 
   # unit tests for security_apikeys_post
   # Add ApiKey
-  # Add a new ApiKey. Required Access Level: Security
+  # Add a new ApiKey. Required Access Level: ModifyAccessTokens
   # @param api_key_payload 
   # @param [Hash] opts the optional parameters
   # @return [NewApiKey]
@@ -97,7 +97,7 @@ describe 'SecurityApi' do
 
   # unit tests for security_smtp_by_name_delete
   # Delete SMTP Credential
-  # Delete your existing SMTP Credentials. Required Access Level: Security
+  # Delete your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
   # @param name Name of the SMTP Credential
   # @param [Hash] opts the optional parameters
   # @option opts [String] :subaccount Email of the subaccount of which credential should be deleted
@@ -123,7 +123,7 @@ describe 'SecurityApi' do
 
   # unit tests for security_smtp_by_name_put
   # Update SMTP Credential
-  # Update your existing SMTP Credentials. Required Access Level: Security
+  # Update your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
   # @param name Name of the SMTP Credential
   # @param smtp_credentials_payload 
   # @param [Hash] opts the optional parameters
@@ -148,7 +148,7 @@ describe 'SecurityApi' do
 
   # unit tests for security_smtp_post
   # Add SMTP Credential
-  # Add new SMTP Credential. Required Access Level: Security
+  # Add new SMTP Credential. Required Access Level: ModifyAccessTokens
   # @param smtp_credentials_payload 
   # @param [Hash] opts the optional parameters
   # @return [NewSmtpCredentials]

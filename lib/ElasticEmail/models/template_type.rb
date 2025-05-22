@@ -21,9 +21,13 @@ module ElasticEmail
     TEMPLATE_EDITOR = "TemplateEditor".freeze
     FORM_TEMPLATE = "FormTemplate".freeze
     LANDING_PAGE_TEMPLATE = "LandingPageTemplate".freeze
+    PAYMENT_CONFIRMATION_TEMPLATE = "PaymentConfirmationTemplate".freeze
+    LANDING_PAGE_PRODUCT_TEMPLATE = "LandingPageProductTemplate".freeze
+    LANDING_PAGE_CHECKOUT_TEMPLATE = "LandingPageCheckoutTemplate".freeze
+    LANDING_PAGE_PAYMENT_CONFIRMATION_TEMPLATE = "LandingPagePaymentConfirmationTemplate".freeze
 
     def self.all_vars
-      @all_vars ||= [RAW_HTML, DRAG_DROP_EDITOR, LANDING_PAGE_EDITOR, TEMPLATE_EDITOR, FORM_TEMPLATE, LANDING_PAGE_TEMPLATE].freeze
+      @all_vars ||= [RAW_HTML, DRAG_DROP_EDITOR, LANDING_PAGE_EDITOR, TEMPLATE_EDITOR, FORM_TEMPLATE, LANDING_PAGE_TEMPLATE, PAYMENT_CONFIRMATION_TEMPLATE, LANDING_PAGE_PRODUCT_TEMPLATE, LANDING_PAGE_CHECKOUT_TEMPLATE, LANDING_PAGE_PAYMENT_CONFIRMATION_TEMPLATE].freeze
     end
 
     # Builds the enum from string

@@ -22,7 +22,7 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 
 Delete ApiKey
 
-Delete your existing ApiKey. Required Access Level: Security
+Delete your existing ApiKey. Required Access Level: ModifyAccessTokens
 
 ### Examples
 
@@ -171,7 +171,7 @@ end
 
 Update ApiKey
 
-Update your existing ApiKey. Required Access Level: Security
+Update your existing ApiKey. Required Access Level: ModifyAccessTokens
 
 ### Examples
 
@@ -317,7 +317,7 @@ end
 
 Add ApiKey
 
-Add a new ApiKey. Required Access Level: Security
+Add a new ApiKey. Required Access Level: ModifyAccessTokens
 
 ### Examples
 
@@ -388,7 +388,7 @@ end
 
 Delete SMTP Credential
 
-Delete your existing SMTP Credentials. Required Access Level: Security
+Delete your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
 
 ### Examples
 
@@ -537,7 +537,7 @@ end
 
 Update SMTP Credential
 
-Update your existing SMTP Credentials. Required Access Level: Security
+Update your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
 
 ### Examples
 
@@ -683,7 +683,7 @@ end
 
 Add SMTP Credential
 
-Add new SMTP Credential. Required Access Level: Security
+Add new SMTP Credential. Required Access Level: ModifyAccessTokens
 
 ### Examples
 
