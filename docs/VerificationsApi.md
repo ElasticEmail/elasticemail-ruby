@@ -32,9 +32,9 @@ require 'ElasticEmail'
 # setup authorization
 ElasticEmail.configure do |config|
   # Configure API key authorization: apikey
-  config.api_key['apikey'] = 'YOUR API KEY'
+  config.api_key['X-ElasticEmail-ApiKey'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apikey'] = 'Bearer'
+  # config.api_key_prefix['X-ElasticEmail-ApiKey'] = 'Bearer'
 end
 
 api_instance = ElasticEmail::VerificationsApi.new
@@ -92,7 +92,7 @@ nil (empty response body)
 
 Get Email Verification Result
 
-Returns a result of verified email. Required Access Level: VerifyEmails
+Returns a result of verified email. Required Access Level: ViewVerifyEmails
 
 ### Examples
 
@@ -102,9 +102,9 @@ require 'ElasticEmail'
 # setup authorization
 ElasticEmail.configure do |config|
   # Configure API key authorization: apikey
-  config.api_key['apikey'] = 'YOUR API KEY'
+  config.api_key['X-ElasticEmail-ApiKey'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apikey'] = 'Bearer'
+  # config.api_key_prefix['X-ElasticEmail-ApiKey'] = 'Bearer'
 end
 
 api_instance = ElasticEmail::VerificationsApi.new
@@ -173,9 +173,9 @@ require 'ElasticEmail'
 # setup authorization
 ElasticEmail.configure do |config|
   # Configure API key authorization: apikey
-  config.api_key['apikey'] = 'YOUR API KEY'
+  config.api_key['X-ElasticEmail-ApiKey'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apikey'] = 'Bearer'
+  # config.api_key_prefix['X-ElasticEmail-ApiKey'] = 'Bearer'
 end
 
 api_instance = ElasticEmail::VerificationsApi.new
@@ -244,9 +244,9 @@ require 'ElasticEmail'
 # setup authorization
 ElasticEmail.configure do |config|
   # Configure API key authorization: apikey
-  config.api_key['apikey'] = 'YOUR API KEY'
+  config.api_key['X-ElasticEmail-ApiKey'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apikey'] = 'Bearer'
+  # config.api_key_prefix['X-ElasticEmail-ApiKey'] = 'Bearer'
 end
 
 api_instance = ElasticEmail::VerificationsApi.new
@@ -304,7 +304,7 @@ nil (empty response body)
 
 Download File Verification Result
 
-Download verification results as a ZIP file. Required Access Level: VerifyEmails
+Download verification results as a ZIP file. Required Access Level: ViewVerifyEmails
 
 ### Examples
 
@@ -314,9 +314,9 @@ require 'ElasticEmail'
 # setup authorization
 ElasticEmail.configure do |config|
   # Configure API key authorization: apikey
-  config.api_key['apikey'] = 'YOUR API KEY'
+  config.api_key['X-ElasticEmail-ApiKey'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apikey'] = 'Bearer'
+  # config.api_key_prefix['X-ElasticEmail-ApiKey'] = 'Bearer'
 end
 
 api_instance = ElasticEmail::VerificationsApi.new
@@ -375,7 +375,7 @@ end
 
 Get Detailed File Verification Result
 
-Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails
+Returns status and results (if verified) of file with given ID. Required Access Level: ViewVerifyEmails
 
 ### Examples
 
@@ -385,9 +385,9 @@ require 'ElasticEmail'
 # setup authorization
 ElasticEmail.configure do |config|
   # Configure API key authorization: apikey
-  config.api_key['apikey'] = 'YOUR API KEY'
+  config.api_key['X-ElasticEmail-ApiKey'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apikey'] = 'Bearer'
+  # config.api_key_prefix['X-ElasticEmail-ApiKey'] = 'Bearer'
 end
 
 api_instance = ElasticEmail::VerificationsApi.new
@@ -462,9 +462,9 @@ require 'ElasticEmail'
 # setup authorization
 ElasticEmail.configure do |config|
   # Configure API key authorization: apikey
-  config.api_key['apikey'] = 'YOUR API KEY'
+  config.api_key['X-ElasticEmail-ApiKey'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apikey'] = 'Bearer'
+  # config.api_key_prefix['X-ElasticEmail-ApiKey'] = 'Bearer'
 end
 
 api_instance = ElasticEmail::VerificationsApi.new
@@ -532,9 +532,9 @@ require 'ElasticEmail'
 # setup authorization
 ElasticEmail.configure do |config|
   # Configure API key authorization: apikey
-  config.api_key['apikey'] = 'YOUR API KEY'
+  config.api_key['X-ElasticEmail-ApiKey'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apikey'] = 'Bearer'
+  # config.api_key_prefix['X-ElasticEmail-ApiKey'] = 'Bearer'
 end
 
 api_instance = ElasticEmail::VerificationsApi.new
@@ -595,7 +595,7 @@ end
 
 Get Files Verification Results
 
-Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails
+Returns a list of uploaded files, their statuses and results. Required Access Level: ViewVerifyEmails
 
 ### Examples
 
@@ -605,9 +605,9 @@ require 'ElasticEmail'
 # setup authorization
 ElasticEmail.configure do |config|
   # Configure API key authorization: apikey
-  config.api_key['apikey'] = 'YOUR API KEY'
+  config.api_key['X-ElasticEmail-ApiKey'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apikey'] = 'Bearer'
+  # config.api_key_prefix['X-ElasticEmail-ApiKey'] = 'Bearer'
 end
 
 api_instance = ElasticEmail::VerificationsApi.new
@@ -663,7 +663,7 @@ This endpoint does not need any parameter.
 
 Get Emails Verification Results
 
-Returns a results of all verified single emails. Required Access Level: VerifyEmails
+Returns a results of all verified single emails. Required Access Level: ViewVerifyEmails
 
 ### Examples
 
@@ -673,9 +673,9 @@ require 'ElasticEmail'
 # setup authorization
 ElasticEmail.configure do |config|
   # Configure API key authorization: apikey
-  config.api_key['apikey'] = 'YOUR API KEY'
+  config.api_key['X-ElasticEmail-ApiKey'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apikey'] = 'Bearer'
+  # config.api_key_prefix['X-ElasticEmail-ApiKey'] = 'Bearer'
 end
 
 api_instance = ElasticEmail::VerificationsApi.new

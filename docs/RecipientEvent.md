@@ -14,7 +14,7 @@
 | **channel_name** | **String** | Name of selected channel. | [optional] |
 | **message_category** | [**MessageCategory**](MessageCategory.md) |  | [optional][default to &#39;Unknown&#39;] |
 | **next_try_on** | **Time** | Date of next try | [optional] |
-| **message** | **String** | Content of message, HTML encoded | [optional] |
+| **message** | **String** | Error message if sending has failed (FailedAttempt or Bounce) | [optional] |
 | **ip_address** | **String** | IP which this email was sent through | [optional] |
 | **pool_name** | **String** | Name of an IP pool this email was sent through | [optional] |
 
@@ -34,7 +34,7 @@ instance = ElasticEmail::RecipientEvent.new(
   channel_name: Channel01,
   message_category: null,
   next_try_on: null,
-  message: Lorem ipsum,
+  message: null,
   ip_address: null,
   pool_name: null
 )

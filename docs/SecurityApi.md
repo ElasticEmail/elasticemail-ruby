@@ -32,9 +32,9 @@ require 'ElasticEmail'
 # setup authorization
 ElasticEmail.configure do |config|
   # Configure API key authorization: apikey
-  config.api_key['apikey'] = 'YOUR API KEY'
+  config.api_key['X-ElasticEmail-ApiKey'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apikey'] = 'Bearer'
+  # config.api_key_prefix['X-ElasticEmail-ApiKey'] = 'Bearer'
 end
 
 api_instance = ElasticEmail::SecurityApi.new
@@ -96,7 +96,7 @@ nil (empty response body)
 
 Load ApiKey
 
-Load your existing ApiKey info. Required Access Level: Security
+Load your existing ApiKey info. Required Access Level: ViewAccessTokens
 
 ### Examples
 
@@ -106,9 +106,9 @@ require 'ElasticEmail'
 # setup authorization
 ElasticEmail.configure do |config|
   # Configure API key authorization: apikey
-  config.api_key['apikey'] = 'YOUR API KEY'
+  config.api_key['X-ElasticEmail-ApiKey'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apikey'] = 'Bearer'
+  # config.api_key_prefix['X-ElasticEmail-ApiKey'] = 'Bearer'
 end
 
 api_instance = ElasticEmail::SecurityApi.new
@@ -181,9 +181,9 @@ require 'ElasticEmail'
 # setup authorization
 ElasticEmail.configure do |config|
   # Configure API key authorization: apikey
-  config.api_key['apikey'] = 'YOUR API KEY'
+  config.api_key['X-ElasticEmail-ApiKey'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apikey'] = 'Bearer'
+  # config.api_key_prefix['X-ElasticEmail-ApiKey'] = 'Bearer'
 end
 
 api_instance = ElasticEmail::SecurityApi.new
@@ -244,7 +244,7 @@ end
 
 List ApiKeys
 
-List all your existing ApiKeys. Required Access Level: Security
+List all your existing ApiKeys. Required Access Level: ViewAccessTokens
 
 ### Examples
 
@@ -254,9 +254,9 @@ require 'ElasticEmail'
 # setup authorization
 ElasticEmail.configure do |config|
   # Configure API key authorization: apikey
-  config.api_key['apikey'] = 'YOUR API KEY'
+  config.api_key['X-ElasticEmail-ApiKey'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apikey'] = 'Bearer'
+  # config.api_key_prefix['X-ElasticEmail-ApiKey'] = 'Bearer'
 end
 
 api_instance = ElasticEmail::SecurityApi.new
@@ -327,9 +327,9 @@ require 'ElasticEmail'
 # setup authorization
 ElasticEmail.configure do |config|
   # Configure API key authorization: apikey
-  config.api_key['apikey'] = 'YOUR API KEY'
+  config.api_key['X-ElasticEmail-ApiKey'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apikey'] = 'Bearer'
+  # config.api_key_prefix['X-ElasticEmail-ApiKey'] = 'Bearer'
 end
 
 api_instance = ElasticEmail::SecurityApi.new
@@ -398,9 +398,9 @@ require 'ElasticEmail'
 # setup authorization
 ElasticEmail.configure do |config|
   # Configure API key authorization: apikey
-  config.api_key['apikey'] = 'YOUR API KEY'
+  config.api_key['X-ElasticEmail-ApiKey'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apikey'] = 'Bearer'
+  # config.api_key_prefix['X-ElasticEmail-ApiKey'] = 'Bearer'
 end
 
 api_instance = ElasticEmail::SecurityApi.new
@@ -462,7 +462,7 @@ nil (empty response body)
 
 Load SMTP Credential
 
-Load your existing SMTP Credential info. Required Access Level: Security
+Load your existing SMTP Credential info. Required Access Level: ViewAccessTokens
 
 ### Examples
 
@@ -472,9 +472,9 @@ require 'ElasticEmail'
 # setup authorization
 ElasticEmail.configure do |config|
   # Configure API key authorization: apikey
-  config.api_key['apikey'] = 'YOUR API KEY'
+  config.api_key['X-ElasticEmail-ApiKey'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apikey'] = 'Bearer'
+  # config.api_key_prefix['X-ElasticEmail-ApiKey'] = 'Bearer'
 end
 
 api_instance = ElasticEmail::SecurityApi.new
@@ -547,9 +547,9 @@ require 'ElasticEmail'
 # setup authorization
 ElasticEmail.configure do |config|
   # Configure API key authorization: apikey
-  config.api_key['apikey'] = 'YOUR API KEY'
+  config.api_key['X-ElasticEmail-ApiKey'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apikey'] = 'Bearer'
+  # config.api_key_prefix['X-ElasticEmail-ApiKey'] = 'Bearer'
 end
 
 api_instance = ElasticEmail::SecurityApi.new
@@ -610,7 +610,7 @@ end
 
 List SMTP Credentials
 
-List all your existing SMTP Credentials. Required Access Level: Security
+List all your existing SMTP Credentials. Required Access Level: ViewAccessTokens
 
 ### Examples
 
@@ -620,9 +620,9 @@ require 'ElasticEmail'
 # setup authorization
 ElasticEmail.configure do |config|
   # Configure API key authorization: apikey
-  config.api_key['apikey'] = 'YOUR API KEY'
+  config.api_key['X-ElasticEmail-ApiKey'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apikey'] = 'Bearer'
+  # config.api_key_prefix['X-ElasticEmail-ApiKey'] = 'Bearer'
 end
 
 api_instance = ElasticEmail::SecurityApi.new
@@ -693,9 +693,9 @@ require 'ElasticEmail'
 # setup authorization
 ElasticEmail.configure do |config|
   # Configure API key authorization: apikey
-  config.api_key['apikey'] = 'YOUR API KEY'
+  config.api_key['X-ElasticEmail-ApiKey'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apikey'] = 'Bearer'
+  # config.api_key_prefix['X-ElasticEmail-ApiKey'] = 'Bearer'
 end
 
 api_instance = ElasticEmail::SecurityApi.new

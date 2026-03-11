@@ -8,6 +8,7 @@
 | **name** | **String** | Campaign name |  |
 | **status** | [**CampaignStatus**](CampaignStatus.md) |  | [optional][default to &#39;Deleted&#39;] |
 | **recipients** | [**CampaignRecipient**](CampaignRecipient.md) |  |  |
+| **excluded_recipients** | [**CampaignRecipient**](CampaignRecipient.md) |  | [optional] |
 | **options** | [**CampaignOptions**](CampaignOptions.md) |  | [optional] |
 
 ## Example
@@ -20,6 +21,7 @@ instance = ElasticEmail::Campaign.new(
   name: null,
   status: null,
   recipients: null,
+  excluded_recipients: null,
   options: null
 )
 ```

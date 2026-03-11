@@ -28,9 +28,9 @@ require 'ElasticEmail'
 # setup authorization
 ElasticEmail.configure do |config|
   # Configure API key authorization: apikey
-  config.api_key['apikey'] = 'YOUR API KEY'
+  config.api_key['X-ElasticEmail-ApiKey'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apikey'] = 'Bearer'
+  # config.api_key_prefix['X-ElasticEmail-ApiKey'] = 'Bearer'
 end
 
 api_instance = ElasticEmail::InboundRouteApi.new
@@ -98,9 +98,9 @@ require 'ElasticEmail'
 # setup authorization
 ElasticEmail.configure do |config|
   # Configure API key authorization: apikey
-  config.api_key['apikey'] = 'YOUR API KEY'
+  config.api_key['X-ElasticEmail-ApiKey'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apikey'] = 'Bearer'
+  # config.api_key_prefix['X-ElasticEmail-ApiKey'] = 'Bearer'
 end
 
 api_instance = ElasticEmail::InboundRouteApi.new
@@ -169,9 +169,9 @@ require 'ElasticEmail'
 # setup authorization
 ElasticEmail.configure do |config|
   # Configure API key authorization: apikey
-  config.api_key['apikey'] = 'YOUR API KEY'
+  config.api_key['X-ElasticEmail-ApiKey'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apikey'] = 'Bearer'
+  # config.api_key_prefix['X-ElasticEmail-ApiKey'] = 'Bearer'
 end
 
 api_instance = ElasticEmail::InboundRouteApi.new
@@ -242,9 +242,9 @@ require 'ElasticEmail'
 # setup authorization
 ElasticEmail.configure do |config|
   # Configure API key authorization: apikey
-  config.api_key['apikey'] = 'YOUR API KEY'
+  config.api_key['X-ElasticEmail-ApiKey'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apikey'] = 'Bearer'
+  # config.api_key_prefix['X-ElasticEmail-ApiKey'] = 'Bearer'
 end
 
 api_instance = ElasticEmail::InboundRouteApi.new
@@ -310,9 +310,9 @@ require 'ElasticEmail'
 # setup authorization
 ElasticEmail.configure do |config|
   # Configure API key authorization: apikey
-  config.api_key['apikey'] = 'YOUR API KEY'
+  config.api_key['X-ElasticEmail-ApiKey'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apikey'] = 'Bearer'
+  # config.api_key_prefix['X-ElasticEmail-ApiKey'] = 'Bearer'
 end
 
 api_instance = ElasticEmail::InboundRouteApi.new
@@ -381,9 +381,9 @@ require 'ElasticEmail'
 # setup authorization
 ElasticEmail.configure do |config|
   # Configure API key authorization: apikey
-  config.api_key['apikey'] = 'YOUR API KEY'
+  config.api_key['X-ElasticEmail-ApiKey'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['apikey'] = 'Bearer'
+  # config.api_key_prefix['X-ElasticEmail-ApiKey'] = 'Bearer'
 end
 
 api_instance = ElasticEmail::InboundRouteApi.new
