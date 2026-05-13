@@ -111,6 +111,9 @@ require 'ElasticEmail/models/utm'
 require 'ElasticEmail/models/verification_file_result'
 require 'ElasticEmail/models/verification_file_result_details'
 require 'ElasticEmail/models/verification_status'
+require 'ElasticEmail/models/webhook'
+require 'ElasticEmail/models/webhook_create_payload'
+require 'ElasticEmail/models/webhook_update_payload'
 
 # APIs
 require 'ElasticEmail/api/campaigns_api'
@@ -128,6 +131,7 @@ require 'ElasticEmail/api/sub_accounts_api'
 require 'ElasticEmail/api/suppressions_api'
 require 'ElasticEmail/api/templates_api'
 require 'ElasticEmail/api/verifications_api'
+require 'ElasticEmail/api/webhook_api'
 
 module ElasticEmail
   class << self

@@ -11,7 +11,7 @@
 | **postback** | **String** | Postback header. | [optional] |
 | **envelope_from** | **String** | E-mail with an optional name to be used as the envelope from address (e.g.: John Doe &lt;email@domain.com&gt;) | [optional] |
 | **from** | **String** | Your e-mail with an optional name (e.g.: John Doe &lt;email@domain.com&gt;) |  |
-| **reply_to** | **String** | To what address should the recipients reply to (e.g. John Doe &lt;email@domain.com&gt;) | [optional] |
+| **reply_to** | **String** | To what addresses should the recipients reply to (e.g. John Doe &lt;email@domain.com&gt;) | [optional] |
 | **subject** | **String** | Default subject of email. | [optional] |
 | **template_name** | **String** | Name of template. | [optional] |
 | **attach_files** | **Array&lt;String&gt;** | Names of previously uploaded files that should be sent as downloadable attachments | [optional] |
@@ -30,7 +30,7 @@ instance = ElasticEmail::EmailContent.new(
   postback: null,
   envelope_from: John Doe &lt;email@domain.com&gt;,
   from: John Doe &lt;email@domain.com&gt;,
-  reply_to: John Doe &lt;email@domain.com&gt;,
+  reply_to: John Doe &lt;email@domain.com&gt;,John Doe2 &lt;email2@domain.com&gt;,
   subject: Hello!,
   template_name: Template01,
   attach_files: [&quot;preuploaded.jpg&quot;],

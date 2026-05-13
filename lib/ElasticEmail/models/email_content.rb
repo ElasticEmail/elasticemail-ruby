@@ -37,7 +37,7 @@ module ElasticEmail
     # Your e-mail with an optional name (e.g.: John Doe <email@domain.com>)
     attr_accessor :from
 
-    # To what address should the recipients reply to (e.g. John Doe <email@domain.com>)
+    # To what addresses should the recipients reply to (e.g. John Doe <email@domain.com>)
     attr_accessor :reply_to
 
     # Default subject of email.

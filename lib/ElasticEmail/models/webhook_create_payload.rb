@@ -14,63 +14,40 @@ require 'date'
 require 'time'
 
 module ElasticEmail
-  # Different send options for a Campaign
-  class CampaignOptions
-    attr_accessor :delivery_optimization
+  # Create webhook payload
+  class WebhookCreatePayload
+    # Filename
+    attr_accessor :name
 
-    # Should the opens be tracked? If no value has been provided, Account's default setting will be used.
-    attr_accessor :track_opens
+    # URL of notification.
+    attr_accessor :url
 
-    # Should the clicks be tracked? If no value has been provided, Account's default setting will be used.
-    attr_accessor :track_clicks
+    attr_accessor :notify_once_per_email
 
-    # Date when this Campaign is scheduled to be sent on
-    attr_accessor :schedule_for
+    attr_accessor :notification_for_sent
 
-    # How often (in minutes) to send the campaign
-    attr_accessor :trigger_frequency
+    attr_accessor :notification_for_opened
 
-    # How many times send the campaign
-    attr_accessor :trigger_count
+    attr_accessor :notification_for_clicked
 
-    attr_accessor :split_options
+    attr_accessor :notification_for_unsubscribed
 
-    # Send email at local time of contact.
-    attr_accessor :send_at_local_time
+    attr_accessor :notification_for_abuse_report
 
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+    attr_accessor :notification_for_error
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'delivery_optimization' => :'DeliveryOptimization',
-        :'track_opens' => :'TrackOpens',
-        :'track_clicks' => :'TrackClicks',
-        :'schedule_for' => :'ScheduleFor',
-        :'trigger_frequency' => :'TriggerFrequency',
-        :'trigger_count' => :'TriggerCount',
-        :'split_options' => :'SplitOptions',
-        :'send_at_local_time' => :'SendAtLocalTime'
+        :'name' => :'Name',
+        :'url' => :'URL',
+        :'notify_once_per_email' => :'NotifyOncePerEmail',
+        :'notification_for_sent' => :'NotificationForSent',
+        :'notification_for_opened' => :'NotificationForOpened',
+        :'notification_for_clicked' => :'NotificationForClicked',
+        :'notification_for_unsubscribed' => :'NotificationForUnsubscribed',
+        :'notification_for_abuse_report' => :'NotificationForAbuseReport',
+        :'notification_for_error' => :'NotificationForError'
       }
     end
 
@@ -82,24 +59,21 @@ module ElasticEmail
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'delivery_optimization' => :'DeliveryOptimizationType',
-        :'track_opens' => :'Boolean',
-        :'track_clicks' => :'Boolean',
-        :'schedule_for' => :'Time',
-        :'trigger_frequency' => :'Float',
-        :'trigger_count' => :'Integer',
-        :'split_options' => :'SplitOptions',
-        :'send_at_local_time' => :'Boolean'
+        :'name' => :'String',
+        :'url' => :'String',
+        :'notify_once_per_email' => :'Boolean',
+        :'notification_for_sent' => :'Boolean',
+        :'notification_for_opened' => :'Boolean',
+        :'notification_for_clicked' => :'Boolean',
+        :'notification_for_unsubscribed' => :'Boolean',
+        :'notification_for_abuse_report' => :'Boolean',
+        :'notification_for_error' => :'Boolean'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'track_opens',
-        :'track_clicks',
-        :'schedule_for',
-        :'send_at_local_time'
       ])
     end
 
@@ -107,49 +81,55 @@ module ElasticEmail
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `ElasticEmail::CampaignOptions` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `ElasticEmail::WebhookCreatePayload` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `ElasticEmail::CampaignOptions`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `ElasticEmail::WebhookCreatePayload`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'delivery_optimization')
-        self.delivery_optimization = attributes[:'delivery_optimization']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       else
-        self.delivery_optimization = 'None'
+        self.name = nil
       end
 
-      if attributes.key?(:'track_opens')
-        self.track_opens = attributes[:'track_opens']
+      if attributes.key?(:'url')
+        self.url = attributes[:'url']
+      else
+        self.url = nil
       end
 
-      if attributes.key?(:'track_clicks')
-        self.track_clicks = attributes[:'track_clicks']
+      if attributes.key?(:'notify_once_per_email')
+        self.notify_once_per_email = attributes[:'notify_once_per_email']
       end
 
-      if attributes.key?(:'schedule_for')
-        self.schedule_for = attributes[:'schedule_for']
+      if attributes.key?(:'notification_for_sent')
+        self.notification_for_sent = attributes[:'notification_for_sent']
       end
 
-      if attributes.key?(:'trigger_frequency')
-        self.trigger_frequency = attributes[:'trigger_frequency']
+      if attributes.key?(:'notification_for_opened')
+        self.notification_for_opened = attributes[:'notification_for_opened']
       end
 
-      if attributes.key?(:'trigger_count')
-        self.trigger_count = attributes[:'trigger_count']
+      if attributes.key?(:'notification_for_clicked')
+        self.notification_for_clicked = attributes[:'notification_for_clicked']
       end
 
-      if attributes.key?(:'split_options')
-        self.split_options = attributes[:'split_options']
+      if attributes.key?(:'notification_for_unsubscribed')
+        self.notification_for_unsubscribed = attributes[:'notification_for_unsubscribed']
       end
 
-      if attributes.key?(:'send_at_local_time')
-        self.send_at_local_time = attributes[:'send_at_local_time']
+      if attributes.key?(:'notification_for_abuse_report')
+        self.notification_for_abuse_report = attributes[:'notification_for_abuse_report']
+      end
+
+      if attributes.key?(:'notification_for_error')
+        self.notification_for_error = attributes[:'notification_for_error']
       end
     end
 
@@ -158,6 +138,14 @@ module ElasticEmail
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
+      if @url.nil?
+        invalid_properties.push('invalid value for "url", url cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -165,6 +153,8 @@ module ElasticEmail
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
+      return false if @name.nil?
+      return false if @url.nil?
       true
     end
 
@@ -173,14 +163,15 @@ module ElasticEmail
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          delivery_optimization == o.delivery_optimization &&
-          track_opens == o.track_opens &&
-          track_clicks == o.track_clicks &&
-          schedule_for == o.schedule_for &&
-          trigger_frequency == o.trigger_frequency &&
-          trigger_count == o.trigger_count &&
-          split_options == o.split_options &&
-          send_at_local_time == o.send_at_local_time
+          name == o.name &&
+          url == o.url &&
+          notify_once_per_email == o.notify_once_per_email &&
+          notification_for_sent == o.notification_for_sent &&
+          notification_for_opened == o.notification_for_opened &&
+          notification_for_clicked == o.notification_for_clicked &&
+          notification_for_unsubscribed == o.notification_for_unsubscribed &&
+          notification_for_abuse_report == o.notification_for_abuse_report &&
+          notification_for_error == o.notification_for_error
     end
 
     # @see the `==` method
@@ -192,7 +183,7 @@ module ElasticEmail
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [delivery_optimization, track_opens, track_clicks, schedule_for, trigger_frequency, trigger_count, split_options, send_at_local_time].hash
+      [name, url, notify_once_per_email, notification_for_sent, notification_for_opened, notification_for_clicked, notification_for_unsubscribed, notification_for_abuse_report, notification_for_error].hash
     end
 
     # Builds the object from hash

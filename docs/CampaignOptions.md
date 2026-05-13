@@ -11,6 +11,7 @@
 | **trigger_frequency** | **Float** | How often (in minutes) to send the campaign | [optional] |
 | **trigger_count** | **Integer** | How many times send the campaign | [optional] |
 | **split_options** | [**SplitOptions**](SplitOptions.md) |  | [optional] |
+| **send_at_local_time** | **Boolean** | Send email at local time of contact. | [optional] |
 
 ## Example
 
@@ -24,7 +25,8 @@ instance = ElasticEmail::CampaignOptions.new(
   schedule_for: null,
   trigger_frequency: null,
   trigger_count: null,
-  split_options: null
+  split_options: null,
+  send_at_local_time: null
 )
 ```
 

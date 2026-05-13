@@ -24,7 +24,7 @@ module ElasticEmail
     # MIME content type
     attr_accessor :content_type
 
-    # Size of your attachment (in bytes).
+    # Size of the attachement in B
     attr_accessor :size
 
     # Attribute mapping from ruby-style variable name to JSON key.

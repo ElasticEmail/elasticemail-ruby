@@ -14,63 +14,55 @@ require 'date'
 require 'time'
 
 module ElasticEmail
-  # Different send options for a Campaign
-  class CampaignOptions
-    attr_accessor :delivery_optimization
+  # Notification webhook setting
+  class Webhook
+    # Public webhook ID
+    attr_accessor :webhook_id
 
-    # Should the opens be tracked? If no value has been provided, Account's default setting will be used.
-    attr_accessor :track_opens
+    # Filename
+    attr_accessor :name
 
-    # Should the clicks be tracked? If no value has been provided, Account's default setting will be used.
-    attr_accessor :track_clicks
+    # Creation date.
+    attr_accessor :date_created
 
-    # Date when this Campaign is scheduled to be sent on
-    attr_accessor :schedule_for
+    # Last change date
+    attr_accessor :date_updated
 
-    # How often (in minutes) to send the campaign
-    attr_accessor :trigger_frequency
+    # URL of notification.
+    attr_accessor :url
 
-    # How many times send the campaign
-    attr_accessor :trigger_count
+    attr_accessor :notify_once_per_email
 
-    attr_accessor :split_options
+    attr_accessor :notification_for_sent
 
-    # Send email at local time of contact.
-    attr_accessor :send_at_local_time
+    attr_accessor :notification_for_opened
 
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
+    attr_accessor :notification_for_clicked
 
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
+    attr_accessor :notification_for_unsubscribed
 
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+    attr_accessor :notification_for_abuse_report
+
+    attr_accessor :notification_for_error
+
+    attr_accessor :is_enabled
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'delivery_optimization' => :'DeliveryOptimization',
-        :'track_opens' => :'TrackOpens',
-        :'track_clicks' => :'TrackClicks',
-        :'schedule_for' => :'ScheduleFor',
-        :'trigger_frequency' => :'TriggerFrequency',
-        :'trigger_count' => :'TriggerCount',
-        :'split_options' => :'SplitOptions',
-        :'send_at_local_time' => :'SendAtLocalTime'
+        :'webhook_id' => :'WebhookID',
+        :'name' => :'Name',
+        :'date_created' => :'DateCreated',
+        :'date_updated' => :'DateUpdated',
+        :'url' => :'URL',
+        :'notify_once_per_email' => :'NotifyOncePerEmail',
+        :'notification_for_sent' => :'NotificationForSent',
+        :'notification_for_opened' => :'NotificationForOpened',
+        :'notification_for_clicked' => :'NotificationForClicked',
+        :'notification_for_unsubscribed' => :'NotificationForUnsubscribed',
+        :'notification_for_abuse_report' => :'NotificationForAbuseReport',
+        :'notification_for_error' => :'NotificationForError',
+        :'is_enabled' => :'IsEnabled'
       }
     end
 
@@ -82,24 +74,27 @@ module ElasticEmail
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'delivery_optimization' => :'DeliveryOptimizationType',
-        :'track_opens' => :'Boolean',
-        :'track_clicks' => :'Boolean',
-        :'schedule_for' => :'Time',
-        :'trigger_frequency' => :'Float',
-        :'trigger_count' => :'Integer',
-        :'split_options' => :'SplitOptions',
-        :'send_at_local_time' => :'Boolean'
+        :'webhook_id' => :'String',
+        :'name' => :'String',
+        :'date_created' => :'Time',
+        :'date_updated' => :'Time',
+        :'url' => :'String',
+        :'notify_once_per_email' => :'Boolean',
+        :'notification_for_sent' => :'Boolean',
+        :'notification_for_opened' => :'Boolean',
+        :'notification_for_clicked' => :'Boolean',
+        :'notification_for_unsubscribed' => :'Boolean',
+        :'notification_for_abuse_report' => :'Boolean',
+        :'notification_for_error' => :'Boolean',
+        :'is_enabled' => :'Boolean'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'track_opens',
-        :'track_clicks',
-        :'schedule_for',
-        :'send_at_local_time'
+        :'date_created',
+        :'date_updated',
       ])
     end
 
@@ -107,49 +102,67 @@ module ElasticEmail
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `ElasticEmail::CampaignOptions` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `ElasticEmail::Webhook` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `ElasticEmail::CampaignOptions`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `ElasticEmail::Webhook`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'delivery_optimization')
-        self.delivery_optimization = attributes[:'delivery_optimization']
-      else
-        self.delivery_optimization = 'None'
+      if attributes.key?(:'webhook_id')
+        self.webhook_id = attributes[:'webhook_id']
       end
 
-      if attributes.key?(:'track_opens')
-        self.track_opens = attributes[:'track_opens']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'track_clicks')
-        self.track_clicks = attributes[:'track_clicks']
+      if attributes.key?(:'date_created')
+        self.date_created = attributes[:'date_created']
       end
 
-      if attributes.key?(:'schedule_for')
-        self.schedule_for = attributes[:'schedule_for']
+      if attributes.key?(:'date_updated')
+        self.date_updated = attributes[:'date_updated']
       end
 
-      if attributes.key?(:'trigger_frequency')
-        self.trigger_frequency = attributes[:'trigger_frequency']
+      if attributes.key?(:'url')
+        self.url = attributes[:'url']
       end
 
-      if attributes.key?(:'trigger_count')
-        self.trigger_count = attributes[:'trigger_count']
+      if attributes.key?(:'notify_once_per_email')
+        self.notify_once_per_email = attributes[:'notify_once_per_email']
       end
 
-      if attributes.key?(:'split_options')
-        self.split_options = attributes[:'split_options']
+      if attributes.key?(:'notification_for_sent')
+        self.notification_for_sent = attributes[:'notification_for_sent']
       end
 
-      if attributes.key?(:'send_at_local_time')
-        self.send_at_local_time = attributes[:'send_at_local_time']
+      if attributes.key?(:'notification_for_opened')
+        self.notification_for_opened = attributes[:'notification_for_opened']
+      end
+
+      if attributes.key?(:'notification_for_clicked')
+        self.notification_for_clicked = attributes[:'notification_for_clicked']
+      end
+
+      if attributes.key?(:'notification_for_unsubscribed')
+        self.notification_for_unsubscribed = attributes[:'notification_for_unsubscribed']
+      end
+
+      if attributes.key?(:'notification_for_abuse_report')
+        self.notification_for_abuse_report = attributes[:'notification_for_abuse_report']
+      end
+
+      if attributes.key?(:'notification_for_error')
+        self.notification_for_error = attributes[:'notification_for_error']
+      end
+
+      if attributes.key?(:'is_enabled')
+        self.is_enabled = attributes[:'is_enabled']
       end
     end
 
@@ -173,14 +186,19 @@ module ElasticEmail
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          delivery_optimization == o.delivery_optimization &&
-          track_opens == o.track_opens &&
-          track_clicks == o.track_clicks &&
-          schedule_for == o.schedule_for &&
-          trigger_frequency == o.trigger_frequency &&
-          trigger_count == o.trigger_count &&
-          split_options == o.split_options &&
-          send_at_local_time == o.send_at_local_time
+          webhook_id == o.webhook_id &&
+          name == o.name &&
+          date_created == o.date_created &&
+          date_updated == o.date_updated &&
+          url == o.url &&
+          notify_once_per_email == o.notify_once_per_email &&
+          notification_for_sent == o.notification_for_sent &&
+          notification_for_opened == o.notification_for_opened &&
+          notification_for_clicked == o.notification_for_clicked &&
+          notification_for_unsubscribed == o.notification_for_unsubscribed &&
+          notification_for_abuse_report == o.notification_for_abuse_report &&
+          notification_for_error == o.notification_for_error &&
+          is_enabled == o.is_enabled
     end
 
     # @see the `==` method
@@ -192,7 +210,7 @@ module ElasticEmail
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [delivery_optimization, track_opens, track_clicks, schedule_for, trigger_frequency, trigger_count, split_options, send_at_local_time].hash
+      [webhook_id, name, date_created, date_updated, url, notify_once_per_email, notification_for_sent, notification_for_opened, notification_for_clicked, notification_for_unsubscribed, notification_for_abuse_report, notification_for_error, is_enabled].hash
     end
 
     # Builds the object from hash
