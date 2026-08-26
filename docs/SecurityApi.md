@@ -114,7 +114,7 @@ end
 api_instance = ElasticEmail::SecurityApi.new
 name = 'name_example' # String | Name of the ApiKey
 opts = {
-  subaccount: 'subaccount_example' # String | Email of the subaccount of which ApiKey should be loaded
+  subaccount: 'subaccount_example' # String | Email of the subaccount of which ApiKey should be loaded. The default API key created for the subaccount has a 48-hour expiration period.
 }
 
 begin
@@ -149,7 +149,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **name** | **String** | Name of the ApiKey |  |
-| **subaccount** | **String** | Email of the subaccount of which ApiKey should be loaded | [optional] |
+| **subaccount** | **String** | Email of the subaccount of which ApiKey should be loaded. The default API key created for the subaccount has a 48-hour expiration period. | [optional] |
 
 ### Return type
 
@@ -261,7 +261,7 @@ end
 
 api_instance = ElasticEmail::SecurityApi.new
 opts = {
-  subaccount: 'subaccount_example' # String | Email of the subaccount of which ApiKeys should be loaded
+  subaccount: 'subaccount_example' # String | Email of the subaccount of which ApiKeys should be loaded. The default API key created for the subaccount has a 48-hour expiration period.
 }
 
 begin
@@ -295,7 +295,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **subaccount** | **String** | Email of the subaccount of which ApiKeys should be loaded | [optional] |
+| **subaccount** | **String** | Email of the subaccount of which ApiKeys should be loaded. The default API key created for the subaccount has a 48-hour expiration period. | [optional] |
 
 ### Return type
 

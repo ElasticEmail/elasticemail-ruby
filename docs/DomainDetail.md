@@ -15,13 +15,16 @@
 | **type** | [**TrackingType**](TrackingType.md) |  | [optional][default to &#39;None&#39;] |
 | **tracking_status** | [**TrackingValidationStatus**](TrackingValidationStatus.md) |  | [optional][default to &#39;Validated&#39;] |
 | **certificate_status** | [**CertificateValidationStatus**](CertificateValidationStatus.md) |  | [optional][default to &#39;ErrorOccured&#39;] |
+| **certificate_expiry_date** | **Time** |  | [optional] |
 | **certificate_validation_error** | **String** |  | [optional] |
 | **tracking_type_user_request** | [**TrackingType**](TrackingType.md) |  | [optional][default to &#39;None&#39;] |
 | **verp** | **Boolean** |  | [optional] |
 | **custom_bounces_domain** | **String** |  | [optional] |
 | **is_custom_bounces_domain_default** | **Boolean** |  | [optional] |
+| **was_ever_verified** | **Boolean** |  | [optional] |
 | **is_marked_for_deletion** | **Boolean** |  | [optional] |
 | **ownership** | [**DomainOwner**](DomainOwner.md) |  | [optional][default to &#39;Current&#39;] |
+| **dkim_record** | [**DKIMRecord**](DKIMRecord.md) |  | [optional] |
 
 ## Example
 
@@ -40,13 +43,16 @@ instance = ElasticEmail::DomainDetail.new(
   type: null,
   tracking_status: null,
   certificate_status: null,
+  certificate_expiry_date: null,
   certificate_validation_error: null,
   tracking_type_user_request: null,
   verp: null,
   custom_bounces_domain: null,
   is_custom_bounces_domain_default: null,
+  was_ever_verified: null,
   is_marked_for_deletion: null,
-  ownership: null
+  ownership: null,
+  dkim_record: null
 )
 ```
 

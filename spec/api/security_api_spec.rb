@@ -50,7 +50,7 @@ describe 'SecurityApi' do
   # Load your existing ApiKey info. Required Access Level: ViewAccessTokens
   # @param name Name of the ApiKey
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :subaccount Email of the subaccount of which ApiKey should be loaded
+  # @option opts [String] :subaccount Email of the subaccount of which ApiKey should be loaded. The default API key created for the subaccount has a 48-hour expiration period.
   # @return [ApiKey]
   describe 'security_apikeys_by_name_get test' do
     it 'should work' do
@@ -75,7 +75,7 @@ describe 'SecurityApi' do
   # List ApiKeys
   # List all your existing ApiKeys. Required Access Level: ViewAccessTokens
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :subaccount Email of the subaccount of which ApiKeys should be loaded
+  # @option opts [String] :subaccount Email of the subaccount of which ApiKeys should be loaded. The default API key created for the subaccount has a 48-hour expiration period.
   # @return [Array<ApiKey>]
   describe 'security_apikeys_get test' do
     it 'should work' do

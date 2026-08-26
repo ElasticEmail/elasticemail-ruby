@@ -32,6 +32,19 @@ describe 'CampaignsApi' do
     end
   end
 
+  # unit tests for campaigns_automation_by_name_trigger_post
+  # Trigger Automation for Contact
+  # Manually trigger an Automation for a contact. Required Access Level: ModifyAutomations
+  # @param name 
+  # @param contact_email 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'campaigns_automation_by_name_trigger_post test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for campaigns_by_name_delete
   # Delete Campaign
   # Delete the specific campaign.  This does not cancel in progress email, see Cancel In Progress. Required Access Level: ModifyCampaigns

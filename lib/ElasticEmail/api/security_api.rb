@@ -87,7 +87,7 @@ module ElasticEmail
     # Load your existing ApiKey info. Required Access Level: ViewAccessTokens
     # @param name [String] Name of the ApiKey
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :subaccount Email of the subaccount of which ApiKey should be loaded
+    # @option opts [String] :subaccount Email of the subaccount of which ApiKey should be loaded. The default API key created for the subaccount has a 48-hour expiration period.
     # @return [ApiKey]
     def security_apikeys_by_name_get(name, opts = {})
       data, _status_code, _headers = security_apikeys_by_name_get_with_http_info(name, opts)
@@ -98,7 +98,7 @@ module ElasticEmail
     # Load your existing ApiKey info. Required Access Level: ViewAccessTokens
     # @param name [String] Name of the ApiKey
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :subaccount Email of the subaccount of which ApiKey should be loaded
+    # @option opts [String] :subaccount Email of the subaccount of which ApiKey should be loaded. The default API key created for the subaccount has a 48-hour expiration period.
     # @return [Array<(ApiKey, Integer, Hash)>] ApiKey data, response status code and response headers
     def security_apikeys_by_name_get_with_http_info(name, opts = {})
       if @api_client.config.debugging
@@ -226,7 +226,7 @@ module ElasticEmail
     # List ApiKeys
     # List all your existing ApiKeys. Required Access Level: ViewAccessTokens
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :subaccount Email of the subaccount of which ApiKeys should be loaded
+    # @option opts [String] :subaccount Email of the subaccount of which ApiKeys should be loaded. The default API key created for the subaccount has a 48-hour expiration period.
     # @return [Array<ApiKey>]
     def security_apikeys_get(opts = {})
       data, _status_code, _headers = security_apikeys_get_with_http_info(opts)
@@ -236,7 +236,7 @@ module ElasticEmail
     # List ApiKeys
     # List all your existing ApiKeys. Required Access Level: ViewAccessTokens
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :subaccount Email of the subaccount of which ApiKeys should be loaded
+    # @option opts [String] :subaccount Email of the subaccount of which ApiKeys should be loaded. The default API key created for the subaccount has a 48-hour expiration period.
     # @return [Array<(Array<ApiKey>, Integer, Hash)>] Array<ApiKey> data, response status code and response headers
     def security_apikeys_get_with_http_info(opts = {})
       if @api_client.config.debugging

@@ -4,12 +4,84 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**subaccounts_by_email_apikey_get**](SubAccountsApi.md#subaccounts_by_email_apikey_get) | **GET** /subaccounts/{email}/apikey | Get SubAccount ApiKey |
 | [**subaccounts_by_email_credits_patch**](SubAccountsApi.md#subaccounts_by_email_credits_patch) | **PATCH** /subaccounts/{email}/credits | Add, Subtract Email Credits |
 | [**subaccounts_by_email_delete**](SubAccountsApi.md#subaccounts_by_email_delete) | **DELETE** /subaccounts/{email} | Delete SubAccount |
 | [**subaccounts_by_email_get**](SubAccountsApi.md#subaccounts_by_email_get) | **GET** /subaccounts/{email} | Load SubAccount |
 | [**subaccounts_by_email_settings_email_put**](SubAccountsApi.md#subaccounts_by_email_settings_email_put) | **PUT** /subaccounts/{email}/settings/email | Update SubAccount Email Settings |
 | [**subaccounts_get**](SubAccountsApi.md#subaccounts_get) | **GET** /subaccounts | Load SubAccounts |
 | [**subaccounts_post**](SubAccountsApi.md#subaccounts_post) | **POST** /subaccounts | Add SubAccount |
+
+
+## subaccounts_by_email_apikey_get
+
+> String subaccounts_by_email_apikey_get(email)
+
+Get SubAccount ApiKey
+
+Returns API key token for the specified SubAccount.             The default API key created for the subaccount has a 48-hour expiration period. Required Access Level: ModifySubAccounts
+
+### Examples
+
+```ruby
+require 'time'
+require 'ElasticEmail'
+# setup authorization
+ElasticEmail.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-ElasticEmail-ApiKey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['X-ElasticEmail-ApiKey'] = 'Bearer'
+end
+
+api_instance = ElasticEmail::SubAccountsApi.new
+email = 'mail@example.com' # String | Email address of Sub-Account
+
+begin
+  # Get SubAccount ApiKey
+  result = api_instance.subaccounts_by_email_apikey_get(email)
+  p result
+rescue ElasticEmail::ApiError => e
+  puts "Error when calling SubAccountsApi->subaccounts_by_email_apikey_get: #{e}"
+end
+```
+
+#### Using the subaccounts_by_email_apikey_get_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(String, Integer, Hash)> subaccounts_by_email_apikey_get_with_http_info(email)
+
+```ruby
+begin
+  # Get SubAccount ApiKey
+  data, status_code, headers = api_instance.subaccounts_by_email_apikey_get_with_http_info(email)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => String
+rescue ElasticEmail::ApiError => e
+  puts "Error when calling SubAccountsApi->subaccounts_by_email_apikey_get_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **email** | **String** | Email address of Sub-Account |  |
+
+### Return type
+
+**String**
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## subaccounts_by_email_credits_patch
@@ -379,7 +451,7 @@ end
 
 Add SubAccount
 
-Add a new SubAccount to your Account. To receive an access token for this SubAccount, make a POST security/apikeys request using the 'subaccount' parameter. Required Access Level: ModifySubAccounts
+Add a new SubAccount to your Account. To receive an access token for this SubAccount, make a POST security/apikeys request using the 'subaccount' parameter.             The default API key created for the subaccount has a 48-hour expiration period. Required Access Level: ModifySubAccounts
 
 ### Examples
 

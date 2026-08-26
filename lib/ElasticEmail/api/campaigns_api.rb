@@ -19,6 +19,74 @@ module ElasticEmail
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Trigger Automation for Contact
+    # Manually trigger an Automation for a contact. Required Access Level: ModifyAutomations
+    # @param name [String] 
+    # @param contact_email [String] 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def campaigns_automation_by_name_trigger_post(name, contact_email, opts = {})
+      campaigns_automation_by_name_trigger_post_with_http_info(name, contact_email, opts)
+      nil
+    end
+
+    # Trigger Automation for Contact
+    # Manually trigger an Automation for a contact. Required Access Level: ModifyAutomations
+    # @param name [String] 
+    # @param contact_email [String] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def campaigns_automation_by_name_trigger_post_with_http_info(name, contact_email, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CampaignsApi.campaigns_automation_by_name_trigger_post ...'
+      end
+      # verify the required parameter 'name' is set
+      if @api_client.config.client_side_validation && name.nil?
+        fail ArgumentError, "Missing the required parameter 'name' when calling CampaignsApi.campaigns_automation_by_name_trigger_post"
+      end
+      # verify the required parameter 'contact_email' is set
+      if @api_client.config.client_side_validation && contact_email.nil?
+        fail ArgumentError, "Missing the required parameter 'contact_email' when calling CampaignsApi.campaigns_automation_by_name_trigger_post"
+      end
+      # resource path
+      local_var_path = '/campaigns/automation/{name}/trigger'.sub('{' + 'name' + '}', CGI.escape(name.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'contactEmail'] = contact_email
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apikey']
+
+      new_options = opts.merge(
+        :operation => :"CampaignsApi.campaigns_automation_by_name_trigger_post",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CampaignsApi#campaigns_automation_by_name_trigger_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete Campaign
     # Delete the specific campaign.  This does not cancel in progress email, see Cancel In Progress. Required Access Level: ModifyCampaigns
     # @param name [String] Name of Campaign to delete

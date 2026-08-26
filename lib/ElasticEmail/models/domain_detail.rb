@@ -45,6 +45,8 @@ module ElasticEmail
 
     attr_accessor :certificate_status
 
+    attr_accessor :certificate_expiry_date
+
     attr_accessor :certificate_validation_error
 
     attr_accessor :tracking_type_user_request
@@ -55,9 +57,13 @@ module ElasticEmail
 
     attr_accessor :is_custom_bounces_domain_default
 
+    attr_accessor :was_ever_verified
+
     attr_accessor :is_marked_for_deletion
 
     attr_accessor :ownership
+
+    attr_accessor :dkim_record
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -95,13 +101,16 @@ module ElasticEmail
         :'type' => :'Type',
         :'tracking_status' => :'TrackingStatus',
         :'certificate_status' => :'CertificateStatus',
+        :'certificate_expiry_date' => :'CertificateExpiryDate',
         :'certificate_validation_error' => :'CertificateValidationError',
         :'tracking_type_user_request' => :'TrackingTypeUserRequest',
         :'verp' => :'VERP',
         :'custom_bounces_domain' => :'CustomBouncesDomain',
         :'is_custom_bounces_domain_default' => :'IsCustomBouncesDomainDefault',
+        :'was_ever_verified' => :'WasEverVerified',
         :'is_marked_for_deletion' => :'IsMarkedForDeletion',
-        :'ownership' => :'Ownership'
+        :'ownership' => :'Ownership',
+        :'dkim_record' => :'DKIMRecord'
       }
     end
 
@@ -124,19 +133,23 @@ module ElasticEmail
         :'type' => :'TrackingType',
         :'tracking_status' => :'TrackingValidationStatus',
         :'certificate_status' => :'CertificateValidationStatus',
+        :'certificate_expiry_date' => :'Time',
         :'certificate_validation_error' => :'String',
         :'tracking_type_user_request' => :'TrackingType',
         :'verp' => :'Boolean',
         :'custom_bounces_domain' => :'String',
         :'is_custom_bounces_domain_default' => :'Boolean',
+        :'was_ever_verified' => :'Boolean',
         :'is_marked_for_deletion' => :'Boolean',
-        :'ownership' => :'DomainOwner'
+        :'ownership' => :'DomainOwner',
+        :'dkim_record' => :'DKIMRecord'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'certificate_expiry_date',
       ])
     end
 
@@ -205,6 +218,10 @@ module ElasticEmail
         self.certificate_status = 'ErrorOccured'
       end
 
+      if attributes.key?(:'certificate_expiry_date')
+        self.certificate_expiry_date = attributes[:'certificate_expiry_date']
+      end
+
       if attributes.key?(:'certificate_validation_error')
         self.certificate_validation_error = attributes[:'certificate_validation_error']
       end
@@ -227,6 +244,10 @@ module ElasticEmail
         self.is_custom_bounces_domain_default = attributes[:'is_custom_bounces_domain_default']
       end
 
+      if attributes.key?(:'was_ever_verified')
+        self.was_ever_verified = attributes[:'was_ever_verified']
+      end
+
       if attributes.key?(:'is_marked_for_deletion')
         self.is_marked_for_deletion = attributes[:'is_marked_for_deletion']
       end
@@ -235,6 +256,10 @@ module ElasticEmail
         self.ownership = attributes[:'ownership']
       else
         self.ownership = 'Current'
+      end
+
+      if attributes.key?(:'dkim_record')
+        self.dkim_record = attributes[:'dkim_record']
       end
     end
 
@@ -269,13 +294,16 @@ module ElasticEmail
           type == o.type &&
           tracking_status == o.tracking_status &&
           certificate_status == o.certificate_status &&
+          certificate_expiry_date == o.certificate_expiry_date &&
           certificate_validation_error == o.certificate_validation_error &&
           tracking_type_user_request == o.tracking_type_user_request &&
           verp == o.verp &&
           custom_bounces_domain == o.custom_bounces_domain &&
           is_custom_bounces_domain_default == o.is_custom_bounces_domain_default &&
+          was_ever_verified == o.was_ever_verified &&
           is_marked_for_deletion == o.is_marked_for_deletion &&
-          ownership == o.ownership
+          ownership == o.ownership &&
+          dkim_record == o.dkim_record
     end
 
     # @see the `==` method
@@ -287,7 +315,7 @@ module ElasticEmail
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [domain, default_domain, spf, dkim, mx, dmarc, is_rewrite_domain_valid, verify, type, tracking_status, certificate_status, certificate_validation_error, tracking_type_user_request, verp, custom_bounces_domain, is_custom_bounces_domain_default, is_marked_for_deletion, ownership].hash
+      [domain, default_domain, spf, dkim, mx, dmarc, is_rewrite_domain_valid, verify, type, tracking_status, certificate_status, certificate_expiry_date, certificate_validation_error, tracking_type_user_request, verp, custom_bounces_domain, is_custom_bounces_domain_default, was_ever_verified, is_marked_for_deletion, ownership, dkim_record].hash
     end
 
     # Builds the object from hash

@@ -17,15 +17,18 @@ module ElasticEmail
   class EventType
     SUBMISSION = "Submission".freeze
     FAILED_ATTEMPT = "FailedAttempt".freeze
-    BOUNCE = "Bounce".freeze
+    ERROR = "Error".freeze
     SENT = "Sent".freeze
     OPEN = "Open".freeze
     CLICK = "Click".freeze
     UNSUBSCRIBE = "Unsubscribe".freeze
     COMPLAINT = "Complaint".freeze
+    BOUNCE = "Bounce".freeze
+    TRANSACTIONAL_UNSUBSCRIBE = "TransactionalUnsubscribe".freeze
+    SUPPRESS = "Suppress".freeze
 
     def self.all_vars
-      @all_vars ||= [SUBMISSION, FAILED_ATTEMPT, BOUNCE, SENT, OPEN, CLICK, UNSUBSCRIBE, COMPLAINT].freeze
+      @all_vars ||= [SUBMISSION, FAILED_ATTEMPT, ERROR, SENT, OPEN, CLICK, UNSUBSCRIBE, COMPLAINT, BOUNCE, TRANSACTIONAL_UNSUBSCRIBE, SUPPRESS].freeze
     end
 
     # Builds the enum from string

@@ -4,12 +4,85 @@ All URIs are relative to *https://api.elasticemail.com/v4*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**campaigns_automation_by_name_trigger_post**](CampaignsApi.md#campaigns_automation_by_name_trigger_post) | **POST** /campaigns/automation/{name}/trigger | Trigger Automation for Contact |
 | [**campaigns_by_name_delete**](CampaignsApi.md#campaigns_by_name_delete) | **DELETE** /campaigns/{name} | Delete Campaign |
 | [**campaigns_by_name_get**](CampaignsApi.md#campaigns_by_name_get) | **GET** /campaigns/{name} | Load Campaign |
 | [**campaigns_by_name_pause_put**](CampaignsApi.md#campaigns_by_name_pause_put) | **PUT** /campaigns/{name}/pause | Pause Campaign |
 | [**campaigns_by_name_put**](CampaignsApi.md#campaigns_by_name_put) | **PUT** /campaigns/{name} | Update Campaign |
 | [**campaigns_get**](CampaignsApi.md#campaigns_get) | **GET** /campaigns | Load Campaigns |
 | [**campaigns_post**](CampaignsApi.md#campaigns_post) | **POST** /campaigns | Add Campaign |
+
+
+## campaigns_automation_by_name_trigger_post
+
+> campaigns_automation_by_name_trigger_post(name, contact_email)
+
+Trigger Automation for Contact
+
+Manually trigger an Automation for a contact. Required Access Level: ModifyAutomations
+
+### Examples
+
+```ruby
+require 'time'
+require 'ElasticEmail'
+# setup authorization
+ElasticEmail.configure do |config|
+  # Configure API key authorization: apikey
+  config.api_key['X-ElasticEmail-ApiKey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['X-ElasticEmail-ApiKey'] = 'Bearer'
+end
+
+api_instance = ElasticEmail::CampaignsApi.new
+name = 'name_example' # String | 
+contact_email = 'contact_email_example' # String | 
+
+begin
+  # Trigger Automation for Contact
+  api_instance.campaigns_automation_by_name_trigger_post(name, contact_email)
+rescue ElasticEmail::ApiError => e
+  puts "Error when calling CampaignsApi->campaigns_automation_by_name_trigger_post: #{e}"
+end
+```
+
+#### Using the campaigns_automation_by_name_trigger_post_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> campaigns_automation_by_name_trigger_post_with_http_info(name, contact_email)
+
+```ruby
+begin
+  # Trigger Automation for Contact
+  data, status_code, headers = api_instance.campaigns_automation_by_name_trigger_post_with_http_info(name, contact_email)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue ElasticEmail::ApiError => e
+  puts "Error when calling CampaignsApi->campaigns_automation_by_name_trigger_post_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **name** | **String** |  |  |
+| **contact_email** | **String** |  |  |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 
 ## campaigns_by_name_delete

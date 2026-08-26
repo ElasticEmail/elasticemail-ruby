@@ -99,6 +99,12 @@ describe ElasticEmail::DomainData do
     end
   end
 
+  describe 'test attribute "certificate_expiry_date"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "certificate_validation_error"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -129,6 +135,12 @@ describe ElasticEmail::DomainData do
     end
   end
 
+  describe 'test attribute "was_ever_verified"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "is_marked_for_deletion"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -136,6 +148,12 @@ describe ElasticEmail::DomainData do
   end
 
   describe 'test attribute "ownership"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "dkim_record"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

@@ -19,6 +19,69 @@ module ElasticEmail
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Get SubAccount ApiKey
+    # Returns API key token for the specified SubAccount.             The default API key created for the subaccount has a 48-hour expiration period. Required Access Level: ModifySubAccounts
+    # @param email [String] Email address of Sub-Account
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def subaccounts_by_email_apikey_get(email, opts = {})
+      data, _status_code, _headers = subaccounts_by_email_apikey_get_with_http_info(email, opts)
+      data
+    end
+
+    # Get SubAccount ApiKey
+    # Returns API key token for the specified SubAccount.             The default API key created for the subaccount has a 48-hour expiration period. Required Access Level: ModifySubAccounts
+    # @param email [String] Email address of Sub-Account
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Integer, Hash)>] String data, response status code and response headers
+    def subaccounts_by_email_apikey_get_with_http_info(email, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SubAccountsApi.subaccounts_by_email_apikey_get ...'
+      end
+      # verify the required parameter 'email' is set
+      if @api_client.config.client_side_validation && email.nil?
+        fail ArgumentError, "Missing the required parameter 'email' when calling SubAccountsApi.subaccounts_by_email_apikey_get"
+      end
+      # resource path
+      local_var_path = '/subaccounts/{email}/apikey'.sub('{' + 'email' + '}', CGI.escape(email.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'String'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apikey']
+
+      new_options = opts.merge(
+        :operation => :"SubAccountsApi.subaccounts_by_email_apikey_get",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SubAccountsApi#subaccounts_by_email_apikey_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Add, Subtract Email Credits
     # Update email credits of a subaccount by the given amount. Required Access Level: ModifySubAccounts
     # @param email [String] Email address of Sub-Account
@@ -353,7 +416,7 @@ module ElasticEmail
     end
 
     # Add SubAccount
-    # Add a new SubAccount to your Account. To receive an access token for this SubAccount, make a POST security/apikeys request using the 'subaccount' parameter. Required Access Level: ModifySubAccounts
+    # Add a new SubAccount to your Account. To receive an access token for this SubAccount, make a POST security/apikeys request using the 'subaccount' parameter.             The default API key created for the subaccount has a 48-hour expiration period. Required Access Level: ModifySubAccounts
     # @param subaccount_payload [SubaccountPayload] 
     # @param [Hash] opts the optional parameters
     # @return [SubAccountInfo]
@@ -363,7 +426,7 @@ module ElasticEmail
     end
 
     # Add SubAccount
-    # Add a new SubAccount to your Account. To receive an access token for this SubAccount, make a POST security/apikeys request using the &#39;subaccount&#39; parameter. Required Access Level: ModifySubAccounts
+    # Add a new SubAccount to your Account. To receive an access token for this SubAccount, make a POST security/apikeys request using the &#39;subaccount&#39; parameter.             The default API key created for the subaccount has a 48-hour expiration period. Required Access Level: ModifySubAccounts
     # @param subaccount_payload [SubaccountPayload] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SubAccountInfo, Integer, Hash)>] SubAccountInfo data, response status code and response headers

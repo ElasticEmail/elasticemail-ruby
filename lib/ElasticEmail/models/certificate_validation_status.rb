@@ -19,9 +19,10 @@ module ElasticEmail
     CERT_NOT_SET = "CertNotSet".freeze
     VALID = "Valid".freeze
     NOT_VALID = "NotValid".freeze
+    IN_PROGRESS = "InProgress".freeze
 
     def self.all_vars
-      @all_vars ||= [ERROR_OCCURED, CERT_NOT_SET, VALID, NOT_VALID].freeze
+      @all_vars ||= [ERROR_OCCURED, CERT_NOT_SET, VALID, NOT_VALID, IN_PROGRESS].freeze
     end
 
     # Builds the enum from string

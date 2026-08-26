@@ -32,6 +32,18 @@ describe 'SubAccountsApi' do
     end
   end
 
+  # unit tests for subaccounts_by_email_apikey_get
+  # Get SubAccount ApiKey
+  # Returns API key token for the specified SubAccount.             The default API key created for the subaccount has a 48-hour expiration period. Required Access Level: ModifySubAccounts
+  # @param email Email address of Sub-Account
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'subaccounts_by_email_apikey_get test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for subaccounts_by_email_credits_patch
   # Add, Subtract Email Credits
   # Update email credits of a subaccount by the given amount. Required Access Level: ModifySubAccounts
@@ -97,7 +109,7 @@ describe 'SubAccountsApi' do
 
   # unit tests for subaccounts_post
   # Add SubAccount
-  # Add a new SubAccount to your Account. To receive an access token for this SubAccount, make a POST security/apikeys request using the &#39;subaccount&#39; parameter. Required Access Level: ModifySubAccounts
+  # Add a new SubAccount to your Account. To receive an access token for this SubAccount, make a POST security/apikeys request using the &#39;subaccount&#39; parameter.             The default API key created for the subaccount has a 48-hour expiration period. Required Access Level: ModifySubAccounts
   # @param subaccount_payload 
   # @param [Hash] opts the optional parameters
   # @return [SubAccountInfo]
