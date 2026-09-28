@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://elasticemail.com"
   s.summary     = "Elastic Email REST API Ruby Gem"
   s.description = "The Ruby library for the Elastic Email REST API. This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach. To start using this API, you will need your Access Token. Remember to keep it safe."
-  s.license     = "Unlicense"
+  s.license     = "MIT"
   s.required_ruby_version = ">= 2.7"
   s.metadata    = {}
 
