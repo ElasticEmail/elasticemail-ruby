@@ -36,7 +36,7 @@ The official Ruby client library for the [Elastic Email](https://elasticemail.co
 - **Campaigns and automations.** Create, update, pause and trigger automations for a contact.
 - **Templates, files and attachments.** Manage templates and uploaded files.
 - **Domains.** Verify sending domains and check SPF, DKIM, tracking and certificate status.
-- **Webhooks and inbound routes.** Receive delivery events and route incoming mail.
+- **Webhooks and inbound routes.** Receive delivery events, optionally signed with HMAC-SHA256 and sent as JSON, and route incoming mail.
 - **Statistics, events and suppressions.** Track delivery, bounces, complaints and unsubscribes.
 - **Subaccounts and security.** Manage subaccounts and API keys.
 - **Plain Ruby objects.** Models are built from keyword hashes with snake_case keys, and every call has a `…_with_http_info` variant that also returns the status code and headers.
@@ -135,6 +135,30 @@ ElasticEmail.configure do |config|
   config.ssl_ca_cert = '/path/to/ca-bundle.crt'
 end
 ```
+
+### Create a signed webhook
+
+Webhooks can sign every request with HMAC-SHA256 and send events as a `POST` with a JSON body. Both options are set when you create the webhook and can't be changed later. Webhooks created without them keep working as unsigned `GET` requests.
+
+```ruby
+webhooks = ElasticEmail::WebhookApi.new
+
+payload = ElasticEmail::WebhookCreatePayload.new(
+  name: 'my-webhook',
+  url: 'https://your-app.example.com/webhook',
+  notification_for_sent: true,
+  notification_for_opened: true,
+  notification_for_clicked: true,
+  enable_signing: true,
+  delivery_method: ElasticEmail::WebhookDeliveryMethod::POST_JSON
+)
+
+webhook = webhooks.webhook_post(payload)
+# Returned only now: store it, e.g. as ELASTICEMAIL_WEBHOOK_SECRET.
+puts webhook.signing_secret
+```
+
+`SigningSecret` is returned only when the webhook is created and when you rotate it with `webhook_by_publicid_secret_rotate_post`, so store it right away. Each signed request carries `X-ElasticEmail-Timestamp` and `X-ElasticEmail-Signature: v1=<hex>`, where the signature is `hex(HMAC-SHA256(secret, "{timestamp}\n{METHOD}\n{path and query}\n{raw body}"))`. Verify it against the raw body before you parse the JSON, reject timestamps more than 5 minutes old, and compare in constant time. The [webhooks guide](https://github.com/ElasticEmail/elasticemail-examples/blob/main/docs/webhooks.md) and the [examples repository](https://github.com/ElasticEmail/elasticemail-examples) have ready-made handlers.
 
 ## More examples
 
