@@ -114,6 +114,7 @@ require 'ElasticEmail/models/verification_file_result_details'
 require 'ElasticEmail/models/verification_status'
 require 'ElasticEmail/models/webhook'
 require 'ElasticEmail/models/webhook_create_payload'
+require 'ElasticEmail/models/webhook_delivery_method'
 require 'ElasticEmail/models/webhook_update_payload'
 
 # APIs

@@ -217,6 +217,69 @@ module ElasticEmail
       return data, status_code, headers
     end
 
+    # Rotate Webhook Secret
+    # Replace the signing secret of a webhook created with signing. The old secret stops being used at once - there is no grace period.             The new secret is returned only in this response. Notifications your endpoint rejects while it still has the old secret are retried and signed with the new one. Required Access Level: ModifyWebNotifications
+    # @param publicid [String] 
+    # @param [Hash] opts the optional parameters
+    # @return [Webhook]
+    def webhook_by_publicid_secret_rotate_post(publicid, opts = {})
+      data, _status_code, _headers = webhook_by_publicid_secret_rotate_post_with_http_info(publicid, opts)
+      data
+    end
+
+    # Rotate Webhook Secret
+    # Replace the signing secret of a webhook created with signing. The old secret stops being used at once - there is no grace period.             The new secret is returned only in this response. Notifications your endpoint rejects while it still has the old secret are retried and signed with the new one. Required Access Level: ModifyWebNotifications
+    # @param publicid [String] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Webhook, Integer, Hash)>] Webhook data, response status code and response headers
+    def webhook_by_publicid_secret_rotate_post_with_http_info(publicid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WebhookApi.webhook_by_publicid_secret_rotate_post ...'
+      end
+      # verify the required parameter 'publicid' is set
+      if @api_client.config.client_side_validation && publicid.nil?
+        fail ArgumentError, "Missing the required parameter 'publicid' when calling WebhookApi.webhook_by_publicid_secret_rotate_post"
+      end
+      # resource path
+      local_var_path = '/webhook/{publicid}/secret/rotate'.sub('{' + 'publicid' + '}', CGI.escape(publicid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Webhook'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['apikey']
+
+      new_options = opts.merge(
+        :operation => :"WebhookApi.webhook_by_publicid_secret_rotate_post",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WebhookApi#webhook_by_publicid_secret_rotate_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Load Webhooks
     # Returns a list of notification webhooks. Required Access Level: ViewWebNotifications
     # @param [Hash] opts the optional parameters

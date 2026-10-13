@@ -69,6 +69,18 @@ describe 'WebhookApi' do
     end
   end
 
+  # unit tests for webhook_by_publicid_secret_rotate_post
+  # Rotate Webhook Secret
+  # Replace the signing secret of a webhook created with signing. The old secret stops being used at once - there is no grace period.             The new secret is returned only in this response. Notifications your endpoint rejects while it still has the old secret are retried and signed with the new one. Required Access Level: ModifyWebNotifications
+  # @param publicid 
+  # @param [Hash] opts the optional parameters
+  # @return [Webhook]
+  describe 'webhook_by_publicid_secret_rotate_post test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for webhook_get
   # Load Webhooks
   # Returns a list of notification webhooks. Required Access Level: ViewWebNotifications

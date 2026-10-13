@@ -61,7 +61,7 @@ gem install ElasticEmail
 Or add it to your `Gemfile`:
 
 ```ruby
-gem 'ElasticEmail', '~> 4.2'
+gem 'ElasticEmail', '~> 4.3'
 ```
 
 and run `bundle install`. RubyGems installs the dependency ([Typhoeus](https://rubygems.org/gems/typhoeus)) for you.
@@ -157,7 +157,7 @@ More complete, runnable samples are in the **[Elastic Email examples repository]
 
 ## API reference
 
-All URIs are relative to `https://api.elasticemail.com/v4`. The SDK covers **114 endpoints** across 16 API classes: `CampaignsApi`, `ContactsApi`, `DomainsApi`, `EmailsApi`, `EventsApi`, `FilesApi`, `InboundRouteApi`, `ListsApi`, `SecurityApi`, `SegmentsApi`, `StatisticsApi`, `SubAccountsApi`, `SuppressionsApi`, `TemplatesApi`, `VerificationsApi` and `WebhookApi`, all in the `ElasticEmail` module.
+All URIs are relative to `https://api.elasticemail.com/v4`. The SDK covers **115 endpoints** across 16 API classes: `CampaignsApi`, `ContactsApi`, `DomainsApi`, `EmailsApi`, `EventsApi`, `FilesApi`, `InboundRouteApi`, `ListsApi`, `SecurityApi`, `SegmentsApi`, `StatisticsApi`, `SubAccountsApi`, `SuppressionsApi`, `TemplatesApi`, `VerificationsApi` and `WebhookApi`, all in the `ElasticEmail` module.
 
 <details>
 <summary><strong>Show all endpoints</strong></summary>
@@ -276,6 +276,7 @@ Class | Method | HTTP request | Description
 *ElasticEmail::WebhookApi* | [**webhook_by_publicid_delete**](docs/WebhookApi.md#webhook_by_publicid_delete) | **DELETE** /webhook/{publicid} | Delete Webhook
 *ElasticEmail::WebhookApi* | [**webhook_by_publicid_get**](docs/WebhookApi.md#webhook_by_publicid_get) | **GET** /webhook/{publicid} | Load Webhook
 *ElasticEmail::WebhookApi* | [**webhook_by_publicid_put**](docs/WebhookApi.md#webhook_by_publicid_put) | **PUT** /webhook/{publicid} | Update Webhook
+*ElasticEmail::WebhookApi* | [**webhook_by_publicid_secret_rotate_post**](docs/WebhookApi.md#webhook_by_publicid_secret_rotate_post) | **POST** /webhook/{publicid}/secret/rotate | Rotate Webhook Secret
 *ElasticEmail::WebhookApi* | [**webhook_get**](docs/WebhookApi.md#webhook_get) | **GET** /webhook | Load Webhooks
 *ElasticEmail::WebhookApi* | [**webhook_post**](docs/WebhookApi.md#webhook_post) | **POST** /webhook | Add Webhook
 
@@ -284,7 +285,7 @@ Class | Method | HTTP request | Description
 ## Models
 
 <details>
-<summary><strong>Show all 98 models</strong></summary>
+<summary><strong>Show all 99 models</strong></summary>
 
  - [ElasticEmail::AccessLevel](docs/AccessLevel.md)
  - [ElasticEmail::AccountStatusEnum](docs/AccountStatusEnum.md)
@@ -383,6 +384,7 @@ Class | Method | HTTP request | Description
  - [ElasticEmail::VerificationStatus](docs/VerificationStatus.md)
  - [ElasticEmail::Webhook](docs/Webhook.md)
  - [ElasticEmail::WebhookCreatePayload](docs/WebhookCreatePayload.md)
+ - [ElasticEmail::WebhookDeliveryMethod](docs/WebhookDeliveryMethod.md)
  - [ElasticEmail::WebhookUpdatePayload](docs/WebhookUpdatePayload.md)
 
 </details>
@@ -404,7 +406,7 @@ The SDK follows the Elastic Email API v4. Package versions and release notes are
 <summary>Build details</summary>
 
 - API version: 4.0.0
-- SDK version: 4.2.0
+- SDK version: 4.3.0
 - Generator version: 7.11.0
 - Build package: `org.openapitools.codegen.languages.RubyClientCodegen`
 

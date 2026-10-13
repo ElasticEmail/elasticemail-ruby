@@ -18,7 +18,7 @@ If you're not sure whether something is generated, open an issue first and ask.
 
 Search [existing issues](https://github.com/ElasticEmail/elasticemail-ruby/issues) first. If nothing matches, open a new issue using the **Bug report** template and include:
 
-- SDK version (from RubyGems, e.g. `4.2.0`; run `gem list ElasticEmail`)
+- SDK version (from RubyGems, e.g. `4.3.0`; run `gem list ElasticEmail`)
 - Ruby version (`ruby -v`)
 - The API method you called and a minimal code sample
 - The full error message, HTTP status code and response body (`ElasticEmail::ApiError#code` and `#response_body`)
@@ -52,7 +52,7 @@ To build and install the gem locally:
 
 ```bash
 gem build ElasticEmail.gemspec
-gem install ./ElasticEmail-4.2.0.gem
+gem install ./ElasticEmail-4.3.0.gem
 ```
 
 Keep the gem compatible with Ruby 2.7 and don't add new runtime dependencies without discussing it in an issue first.

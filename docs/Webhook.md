@@ -17,6 +17,9 @@
 | **notification_for_abuse_report** | **Boolean** |  | [optional] |
 | **notification_for_error** | **Boolean** |  | [optional] |
 | **is_enabled** | **Boolean** |  | [optional] |
+| **signing_enabled** | **Boolean** | Requests carry an HMAC-SHA256 signature. Chosen when the webhook is created and can&#39;t be changed. | [optional] |
+| **delivery_method** | [**WebhookDeliveryMethod**](WebhookDeliveryMethod.md) |  | [optional][default to &#39;Get&#39;] |
+| **signing_secret** | **String** | Signing secret - returned only once, when a webhook is created with signing or its secret is rotated. Store it safely. | [optional] |
 
 ## Example
 
@@ -36,7 +39,10 @@ instance = ElasticEmail::Webhook.new(
   notification_for_unsubscribed: null,
   notification_for_abuse_report: null,
   notification_for_error: null,
-  is_enabled: null
+  is_enabled: null,
+  signing_enabled: null,
+  delivery_method: null,
+  signing_secret: null
 )
 ```
 

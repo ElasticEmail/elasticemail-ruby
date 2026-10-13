@@ -36,6 +36,33 @@ module ElasticEmail
 
     attr_accessor :notification_for_error
 
+    # Sign every request with HMAC-SHA256. Can be set only when the webhook is created. Default: false.
+    attr_accessor :enable_signing
+
+    attr_accessor :delivery_method
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -47,7 +74,9 @@ module ElasticEmail
         :'notification_for_clicked' => :'NotificationForClicked',
         :'notification_for_unsubscribed' => :'NotificationForUnsubscribed',
         :'notification_for_abuse_report' => :'NotificationForAbuseReport',
-        :'notification_for_error' => :'NotificationForError'
+        :'notification_for_error' => :'NotificationForError',
+        :'enable_signing' => :'EnableSigning',
+        :'delivery_method' => :'DeliveryMethod'
       }
     end
 
@@ -67,13 +96,16 @@ module ElasticEmail
         :'notification_for_clicked' => :'Boolean',
         :'notification_for_unsubscribed' => :'Boolean',
         :'notification_for_abuse_report' => :'Boolean',
-        :'notification_for_error' => :'Boolean'
+        :'notification_for_error' => :'Boolean',
+        :'enable_signing' => :'Boolean',
+        :'delivery_method' => :'WebhookDeliveryMethod'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'enable_signing',
       ])
     end
 
@@ -131,6 +163,16 @@ module ElasticEmail
       if attributes.key?(:'notification_for_error')
         self.notification_for_error = attributes[:'notification_for_error']
       end
+
+      if attributes.key?(:'enable_signing')
+        self.enable_signing = attributes[:'enable_signing']
+      end
+
+      if attributes.key?(:'delivery_method')
+        self.delivery_method = attributes[:'delivery_method']
+      else
+        self.delivery_method = 'Get'
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -171,7 +213,9 @@ module ElasticEmail
           notification_for_clicked == o.notification_for_clicked &&
           notification_for_unsubscribed == o.notification_for_unsubscribed &&
           notification_for_abuse_report == o.notification_for_abuse_report &&
-          notification_for_error == o.notification_for_error
+          notification_for_error == o.notification_for_error &&
+          enable_signing == o.enable_signing &&
+          delivery_method == o.delivery_method
     end
 
     # @see the `==` method
@@ -183,7 +227,7 @@ module ElasticEmail
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, url, notify_once_per_email, notification_for_sent, notification_for_opened, notification_for_clicked, notification_for_unsubscribed, notification_for_abuse_report, notification_for_error].hash
+      [name, url, notify_once_per_email, notification_for_sent, notification_for_opened, notification_for_clicked, notification_for_unsubscribed, notification_for_abuse_report, notification_for_error, enable_signing, delivery_method].hash
     end
 
     # Builds the object from hash
