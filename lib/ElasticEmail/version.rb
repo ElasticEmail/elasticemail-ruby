@@ -11,5 +11,5 @@ Generator version: 7.11.0
 =end
 
 module ElasticEmail
-  VERSION = '4.3.0'
+  VERSION = '4.4.0'
 end

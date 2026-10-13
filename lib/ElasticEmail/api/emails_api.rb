@@ -179,6 +179,7 @@ module ElasticEmail
     # Send to a list of contacts submitted in a CSV data file. The first column in the CSV must be the email address and the CSV must contain a header row. Additional fields can be included with a named header row and can be merged with the template using {merge} tags in the content.                           Example CSV:                           email, firstname, lastname              test1@gmail.com, michael, smith              test2@gmail.com, janet, smith                           Merge file must not be empty. Required Access Level: SendHttp
     # @param merge_email_payload [MergeEmailPayload] Email data
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request.
     # @return [EmailSend]
     def emails_mergefile_post(merge_email_payload, opts = {})
       data, _status_code, _headers = emails_mergefile_post_with_http_info(merge_email_payload, opts)
@@ -189,6 +190,7 @@ module ElasticEmail
     # Send to a list of contacts submitted in a CSV data file. The first column in the CSV must be the email address and the CSV must contain a header row. Additional fields can be included with a named header row and can be merged with the template using {merge} tags in the content.                           Example CSV:                           email, firstname, lastname              test1@gmail.com, michael, smith              test2@gmail.com, janet, smith                           Merge file must not be empty. Required Access Level: SendHttp
     # @param merge_email_payload [MergeEmailPayload] Email data
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request.
     # @return [Array<(EmailSend, Integer, Hash)>] EmailSend data, response status code and response headers
     def emails_mergefile_post_with_http_info(merge_email_payload, opts = {})
       if @api_client.config.debugging
@@ -198,6 +200,19 @@ module ElasticEmail
       if @api_client.config.client_side_validation && merge_email_payload.nil?
         fail ArgumentError, "Missing the required parameter 'merge_email_payload' when calling EmailsApi.emails_mergefile_post"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling EmailsApi.emails_mergefile_post, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling EmailsApi.emails_mergefile_post, the character length must be great than or equal to 1.'
+      end
+
+      pattern = Regexp.new(/^[\x20-\x7E]+$/)
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"idempotency_key\"]' when calling EmailsApi.emails_mergefile_post, must conform to the pattern #{pattern}."
+      end
+
       # resource path
       local_var_path = '/emails/mergefile'
 
@@ -213,6 +228,7 @@ module ElasticEmail
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -247,6 +263,7 @@ module ElasticEmail
     # Send bulk merge email. Required Access Level: SendHttp
     # @param email_message_data [EmailMessageData] Email data
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request.
     # @return [EmailSend]
     def emails_post(email_message_data, opts = {})
       data, _status_code, _headers = emails_post_with_http_info(email_message_data, opts)
@@ -257,6 +274,7 @@ module ElasticEmail
     # Send bulk merge email. Required Access Level: SendHttp
     # @param email_message_data [EmailMessageData] Email data
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request.
     # @return [Array<(EmailSend, Integer, Hash)>] EmailSend data, response status code and response headers
     def emails_post_with_http_info(email_message_data, opts = {})
       if @api_client.config.debugging
@@ -266,6 +284,19 @@ module ElasticEmail
       if @api_client.config.client_side_validation && email_message_data.nil?
         fail ArgumentError, "Missing the required parameter 'email_message_data' when calling EmailsApi.emails_post"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling EmailsApi.emails_post, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling EmailsApi.emails_post, the character length must be great than or equal to 1.'
+      end
+
+      pattern = Regexp.new(/^[\x20-\x7E]+$/)
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"idempotency_key\"]' when calling EmailsApi.emails_post, must conform to the pattern #{pattern}."
+      end
+
       # resource path
       local_var_path = '/emails'
 
@@ -281,6 +312,7 @@ module ElasticEmail
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -315,6 +347,7 @@ module ElasticEmail
     # Send transactional emails (recipients will be known to each other). Required Access Level: SendHttp
     # @param email_transactional_message_data [EmailTransactionalMessageData] Email data
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request.
     # @return [EmailSend]
     def emails_transactional_post(email_transactional_message_data, opts = {})
       data, _status_code, _headers = emails_transactional_post_with_http_info(email_transactional_message_data, opts)
@@ -325,6 +358,7 @@ module ElasticEmail
     # Send transactional emails (recipients will be known to each other). Required Access Level: SendHttp
     # @param email_transactional_message_data [EmailTransactionalMessageData] Email data
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request.
     # @return [Array<(EmailSend, Integer, Hash)>] EmailSend data, response status code and response headers
     def emails_transactional_post_with_http_info(email_transactional_message_data, opts = {})
       if @api_client.config.debugging
@@ -334,6 +368,19 @@ module ElasticEmail
       if @api_client.config.client_side_validation && email_transactional_message_data.nil?
         fail ArgumentError, "Missing the required parameter 'email_transactional_message_data' when calling EmailsApi.emails_transactional_post"
       end
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length > 255
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling EmailsApi.emails_transactional_post, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"idempotency_key"]" when calling EmailsApi.emails_transactional_post, the character length must be great than or equal to 1.'
+      end
+
+      pattern = Regexp.new(/^[\x20-\x7E]+$/)
+      if @api_client.config.client_side_validation && !opts[:'idempotency_key'].nil? && opts[:'idempotency_key'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"idempotency_key\"]' when calling EmailsApi.emails_transactional_post, must conform to the pattern #{pattern}."
+      end
+
       # resource path
       local_var_path = '/emails/transactional'
 
@@ -349,6 +396,7 @@ module ElasticEmail
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}

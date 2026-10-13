@@ -177,7 +177,7 @@ end
 
 ## emails_mergefile_post
 
-> <EmailSend> emails_mergefile_post(merge_email_payload)
+> <EmailSend> emails_mergefile_post(merge_email_payload, opts)
 
 Send Bulk Emails CSV
 
@@ -198,10 +198,13 @@ end
 
 api_instance = ElasticEmail::EmailsApi.new
 merge_email_payload = ElasticEmail::MergeEmailPayload.new({merge_file: ElasticEmail::MessageAttachment.new({binary_content: 'binary_content_example', name: 'name_example'}), content: ElasticEmail::EmailContent.new({from: 'John Doe <email@domain.com>'})}) # MergeEmailPayload | Email data
+opts = {
+  idempotency_key: '6f1c2a7e-3b4d-4e8f-9a1b-2c3d4e5f6a7b' # String | Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request.
+}
 
 begin
   # Send Bulk Emails CSV
-  result = api_instance.emails_mergefile_post(merge_email_payload)
+  result = api_instance.emails_mergefile_post(merge_email_payload, opts)
   p result
 rescue ElasticEmail::ApiError => e
   puts "Error when calling EmailsApi->emails_mergefile_post: #{e}"
@@ -212,12 +215,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<EmailSend>, Integer, Hash)> emails_mergefile_post_with_http_info(merge_email_payload)
+> <Array(<EmailSend>, Integer, Hash)> emails_mergefile_post_with_http_info(merge_email_payload, opts)
 
 ```ruby
 begin
   # Send Bulk Emails CSV
-  data, status_code, headers = api_instance.emails_mergefile_post_with_http_info(merge_email_payload)
+  data, status_code, headers = api_instance.emails_mergefile_post_with_http_info(merge_email_payload, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <EmailSend>
@@ -231,6 +234,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **merge_email_payload** | [**MergeEmailPayload**](MergeEmailPayload.md) | Email data |  |
+| **idempotency_key** | **String** | Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. | [optional] |
 
 ### Return type
 
@@ -248,7 +252,7 @@ end
 
 ## emails_post
 
-> <EmailSend> emails_post(email_message_data)
+> <EmailSend> emails_post(email_message_data, opts)
 
 Send Bulk Emails
 
@@ -269,10 +273,13 @@ end
 
 api_instance = ElasticEmail::EmailsApi.new
 email_message_data = ElasticEmail::EmailMessageData.new({recipients: [ElasticEmail::EmailRecipient.new({email: 'mail@example.com'})], content: ElasticEmail::EmailContent.new({from: 'John Doe <email@domain.com>'})}) # EmailMessageData | Email data
+opts = {
+  idempotency_key: '6f1c2a7e-3b4d-4e8f-9a1b-2c3d4e5f6a7b' # String | Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request.
+}
 
 begin
   # Send Bulk Emails
-  result = api_instance.emails_post(email_message_data)
+  result = api_instance.emails_post(email_message_data, opts)
   p result
 rescue ElasticEmail::ApiError => e
   puts "Error when calling EmailsApi->emails_post: #{e}"
@@ -283,12 +290,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<EmailSend>, Integer, Hash)> emails_post_with_http_info(email_message_data)
+> <Array(<EmailSend>, Integer, Hash)> emails_post_with_http_info(email_message_data, opts)
 
 ```ruby
 begin
   # Send Bulk Emails
-  data, status_code, headers = api_instance.emails_post_with_http_info(email_message_data)
+  data, status_code, headers = api_instance.emails_post_with_http_info(email_message_data, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <EmailSend>
@@ -302,6 +309,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **email_message_data** | [**EmailMessageData**](EmailMessageData.md) | Email data |  |
+| **idempotency_key** | **String** | Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. | [optional] |
 
 ### Return type
 
@@ -319,7 +327,7 @@ end
 
 ## emails_transactional_post
 
-> <EmailSend> emails_transactional_post(email_transactional_message_data)
+> <EmailSend> emails_transactional_post(email_transactional_message_data, opts)
 
 Send Transactional Email
 
@@ -340,10 +348,13 @@ end
 
 api_instance = ElasticEmail::EmailsApi.new
 email_transactional_message_data = ElasticEmail::EmailTransactionalMessageData.new({recipients: ElasticEmail::TransactionalRecipient.new({to: ['to_example']}), content: ElasticEmail::EmailContent.new({from: 'John Doe <email@domain.com>'})}) # EmailTransactionalMessageData | Email data
+opts = {
+  idempotency_key: '6f1c2a7e-3b4d-4e8f-9a1b-2c3d4e5f6a7b' # String | Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request.
+}
 
 begin
   # Send Transactional Email
-  result = api_instance.emails_transactional_post(email_transactional_message_data)
+  result = api_instance.emails_transactional_post(email_transactional_message_data, opts)
   p result
 rescue ElasticEmail::ApiError => e
   puts "Error when calling EmailsApi->emails_transactional_post: #{e}"
@@ -354,12 +365,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<EmailSend>, Integer, Hash)> emails_transactional_post_with_http_info(email_transactional_message_data)
+> <Array(<EmailSend>, Integer, Hash)> emails_transactional_post_with_http_info(email_transactional_message_data, opts)
 
 ```ruby
 begin
   # Send Transactional Email
-  data, status_code, headers = api_instance.emails_transactional_post_with_http_info(email_transactional_message_data)
+  data, status_code, headers = api_instance.emails_transactional_post_with_http_info(email_transactional_message_data, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <EmailSend>
@@ -373,6 +384,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **email_transactional_message_data** | [**EmailTransactionalMessageData**](EmailTransactionalMessageData.md) | Email data |  |
+| **idempotency_key** | **String** | Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request. | [optional] |
 
 ### Return type
 
